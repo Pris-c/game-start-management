@@ -82,15 +82,16 @@ public class Client {
 
     public static void printNewestGame(){
         cleanScreen();
-        String[][] matrixSales = extractToMatrix(fileVendas(), true);
-        String[] rawGamesTitle = extractColumnToArray(matrixSales, 4);
-        String[] set = arrayToSet(rawGamesTitle);
+        String[] set = arrayToSet(columnToSet(fileVendas(), 4, true));
 
+        System.out.println(" ------------- ");
         System.out.println("Jogo mais recente: ");
         System.out.println(set[set.length-1]);
         System.out.println(" ------------- ");
         System.out.println();
     }
+
+    public static void printPublisherCatalog(){}
 
 
 

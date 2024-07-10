@@ -74,6 +74,7 @@ public class Menu {
                     break;
                 case 5:
                     // TODO: Imprimir Catálogo Editora
+                    // printPublisherCatalog();
                     break;
                 case 6:
                     // TODO: Imprimir Catálogo Categoria

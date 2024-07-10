@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import static data.DataUtil.arrayContain;
-import static gameStart.Util.printAdvetisingFileNotFound;
+import static gameStart.Util.*;
 
 public class FileHandler {
 
@@ -79,6 +79,48 @@ public class FileHandler {
                 lineInd++;
             }
             return matrix;
+        } catch (FileNotFoundException ex){
+            printAdvetisingFileNotFound();
+        }
+        return new String[0][0];
+    }
+
+
+    public static String[][] filterFileToMatrix(File file, boolean ignoreHeader, String key, int column) {
+        try{
+            Scanner fileScanner = new Scanner(file);
+            int countColumns = countColumns(file);
+            int countLines = countLines(file) ;
+
+            if (ignoreHeader) {
+                fileScanner.nextLine();
+                countLines--;
+            }
+
+            String[][] matrix = new String[countLines][countColumns];
+
+            int lineInd = 0;
+            String[] line;
+            while (fileScanner.hasNext()) {
+                line = fileScanner.nextLine().split(";");
+                if (key.equalsIgnoreCase(line[column])){
+                    for (int i = 0; i < countColumns; i++){
+                        matrix[lineInd][i] = line[i];
+                    }
+                    lineInd++;
+                }
+            }
+
+            String[][] filteredMatrix = new String[lineInd][countColumns];
+            for (int i = 0; i < lineInd; i++){
+                for (int k = 0; k < countColumns; k++){
+                    filteredMatrix[i][k] = matrix[i][k];
+                }
+            }
+            printMatrix(filteredMatrix);
+
+            return filteredMatrix;
+
         } catch (FileNotFoundException ex){
             printAdvetisingFileNotFound();
         }

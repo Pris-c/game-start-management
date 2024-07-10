@@ -117,8 +117,6 @@ public class FileHandler {
                     filteredMatrix[i][k] = matrix[i][k];
                 }
             }
-            printMatrix(filteredMatrix);
-
             return filteredMatrix;
 
         } catch (FileNotFoundException ex){

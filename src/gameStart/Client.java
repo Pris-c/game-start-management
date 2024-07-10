@@ -1,11 +1,9 @@
 package gameStart;
 
-import java.io.File;
 import java.util.Scanner;
 
 import static data.DataUtil.arrayToSet;
 import static data.DataUtil.extractColumnToArray;
-import static data.Sales.gameStart_Vendas;
 import static file.FileHandler.*;
 import static gameStart.Util.*;
 
@@ -56,25 +54,25 @@ public class Client {
 
             switch (option){
                 case 1:
-                    printFile(callOfDutyFile());
+                    printFile(fileCallOfDuty());
                     break;
                 case 2:
-                    printFile(fifaFile());
+                    printFile(fileFifa());
                     break;
                 case 3:
-                    printFile(hollowKnightFile());
+                    printFile(fileHollowKnight());
                     break;
                 case 4:
-                    printFile(minecraftFile());
+                    printFile(fileMinecraft());
                     break;
                 case 5:
-                    printFile(mortalKombatFile());
+                    printFile(fileMortalKombat());
                     break;
                 case 6:
-                    printFile(overcookedFile());
+                    printFile(fileOvercooked());
                     break;
                 case 7:
-                    printFile(witcher3File());
+                    printFile(fileWitcher3());
                     break;
             }
 
@@ -84,7 +82,7 @@ public class Client {
 
     public static void printNewestGame(){
         cleanScreen();
-        String[][] matrixSales = extractToMatrix(gameStart_Vendas(), true);
+        String[][] matrixSales = extractToMatrix(fileVendas(), true);
         String[] rawGamesTitle = extractColumnToArray(matrixSales, 4);
         String[] set = arrayToSet(rawGamesTitle);
 

@@ -5,6 +5,7 @@ import java.util.Scanner;
 import static data.Sales.printGamesCatalog;
 import static gameStart.Client.*;
 import static gameStart.Util.cleanScreen;
+import static gameStart.Util.validateOption;
 
 public class Menu {
 
@@ -48,7 +49,7 @@ public class Menu {
             System.out.println("1 - Novo registro");
             System.out.println("2 - Procurar estacionamento");
             System.out.println("3 - Imprimir Catálogo");
-            System.out.println("4 - Imprimir Catálogos Gráficos");
+            System.out.println("4 - Imprimir Gráficos");
             System.out.println("5 - Imprimir Catálogo Editora");
             System.out.println("6 - Imprimir Catálogo Categoria");
             System.out.println("7 - Imprimir jogo mais recente");
@@ -69,7 +70,7 @@ public class Menu {
                     printGamesCatalog();
                     break;
                 case 4:
-                    // TODO: Imprimir Catálogos Gráficos
+                    printGraph();
                     break;
                 case 5:
                     // TODO: Imprimir Catálogo Editora
@@ -78,7 +79,7 @@ public class Menu {
                     // TODO: Imprimir Catálogo Categoria
                     break;
                 case 7:
-                    // TODO: Imprimir jogo mais recente
+                    printNewestGame();
                     break;
             }
 
@@ -87,25 +88,6 @@ public class Menu {
 
     public static void adminMenu(){}
 
-    public static int validateOption(int min, int max){
-        Scanner input = new Scanner(System.in);
-        int option;
-        boolean validInput;
 
-        do{
-            validInput = true;
-            System.out.print(">> ");
-            option = input.nextInt();
-
-            if (option < min || option > max){
-                validInput = false;
-                System.out.println("Opção Inválida! Por favor, tente novamente.");
-            }
-
-        } while(!validInput);
-
-        cleanScreen();
-        return option;
-    }
 
 }

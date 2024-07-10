@@ -18,10 +18,9 @@ public class Sales {
     public static void printGamesCatalog() {
         String[][] matrixSales = extractToMatrix(gameStart_Vendas(), true);
         String[] rawGamesTitle = extractColumnToArray(matrixSales, 4);
-        System.out.println(" -- Games Catalog -- ");
+        System.out.println(" -- Catálogo de Jogos -- ");
         printArray(arrayToSet(rawGamesTitle));
-        System.out.println(" -- End of Games Catalog -- ");
+        System.out.println(" -- Fim do Catálogo de Jogos -- ");
     }
-
 
 }

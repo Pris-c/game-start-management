@@ -1,26 +1,25 @@
 package gameStart;
 
-import java.util.Scanner;
-
 import static gameStart.Admin.*;
 import static gameStart.Client.*;
-import static gameStart.Util.*;
+import static gameStart.Util.cleanScreen;
+import static gameStart.Util.validateOption;
 
 public class Menu {
 
-    public static void startApp(){
+    public static void startApp() {
         int option;
 
-        do{
+        do {
 
             System.out.println(" --- Seja bem vindo à Game Star! ---");
             System.out.println("Informe sua categoria de utilizador: ");
             System.out.println("1 - CLIENTE");
             System.out.println("2 - ADMINISTRADOR");
             System.out.println("\033[3mPara encerrar, digite \"0\".");
-            option = validateOption(0,2);
+            option = validateOption(0, 2);
 
-            switch (option){
+            switch (option) {
                 case 0:
                     // TODO: Show copyrights
                     System.out.println("APRESENTAR COPYRIGHTS");
@@ -29,7 +28,7 @@ public class Menu {
                     clientMenu();
                     break;
                 case 2:
-                    if(login()){
+                    if (login()) {
                         adminMenu();
                     }
                     break;
@@ -38,7 +37,7 @@ public class Menu {
         } while (option != 0);
     }
 
-    public static void clientMenu(){
+    public static void clientMenu() {
         int option;
 
         do {
@@ -54,9 +53,9 @@ public class Menu {
             System.out.println("6 - Imprimir Catálogo Categoria");
             System.out.println("7 - Imprimir jogo mais recente");
             System.out.println("0 - SAIR");
-            option = validateOption(0,7);
+            option = validateOption(0, 7);
 
-            switch (option){
+            switch (option) {
                 case 0:
                     cleanScreen();
                     break;
@@ -86,7 +85,7 @@ public class Menu {
         } while (option != 0);
     }
 
-    public static void adminMenu(){
+    public static void adminMenu() {
         int option;
 
         do {
@@ -105,9 +104,9 @@ public class Menu {
             System.out.println("9  - Top 5 Jogos");
             System.out.println("10 - Bottom 5 jogos");
             System.out.println("0  - SAIR");
-            option = validateOption(0,7);
+            option = validateOption(0, 7);
 
-            switch (option){
+            switch (option) {
                 case 0:
                     cleanScreen();
                     break;
@@ -146,7 +145,6 @@ public class Menu {
 
         } while (option != 0);
     }
-
 
 
 }

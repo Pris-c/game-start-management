@@ -6,3 +6,4 @@ TODO:   Implementar validação de inputs com try catch
         Refatorar printClientsByKey;
         Criar limparArray
         Validar se o item a ser pesquisado existe *array>0
+        // Tratar arrayToSet para elementos nulos

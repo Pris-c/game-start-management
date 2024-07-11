@@ -8,7 +8,7 @@ import static gameStart.Util.*;
 
 public class Client {
 
-    public static void register(){
+    public static void register() {
         Scanner input = new Scanner(System.in);
         String clientName, clientPhone, clientMail;
 
@@ -25,10 +25,10 @@ public class Client {
     }
 
 
-    public static void findParking(){
+    public static void findParking() {
         System.out.println("Vagas disponíveis: ");
-        for (int i = 0; i <= 121; i+=5){
-            if (triangularNumber(i)){
+        for (int i = 0; i <= 121; i += 5) {
+            if (triangularNumber(i)) {
                 System.out.print(i + "\t");
             }
         }
@@ -38,14 +38,14 @@ public class Client {
     public static void printGamesCatalog() {
 
         System.out.println(" -- Catálogo de Jogos -- ");
-        printArray(columnToSet(fileVendas(), 4, true));
+        printArray(fileColumnToSet(fileVendas(), 4, true));
         System.out.println(" -- Fim do Catálogo de Jogos -- ");
     }
 
-    public static void printGraph(){
-        int option = 0;
+    public static void printGraph() {
+        int option;
 
-        do{
+        do {
             System.out.println(" -- Catálogo Gráfico -- ");
             System.out.println("Escolha o gráfico a ser impresso: ");
             System.out.println("1 - Call Of Duty");
@@ -56,29 +56,29 @@ public class Client {
             System.out.println("6 - Overcooked");
             System.out.println("7 - Witcher 3");
             System.out.println("\033[3mPara voltar, digite \"0\".");
-            option = validateOption(0,7);
+            option = validateOption(0, 7);
 
-            switch (option){
+            switch (option) {
                 case 1:
-                    printFile(fileCallOfDuty());
+                    printFile(graphCallOfDuty());
                     break;
                 case 2:
-                    printFile(fileFifa());
+                    printFile(graphFifa());
                     break;
                 case 3:
-                    printFile(fileHollowKnight());
+                    printFile(graphHollowKnight());
                     break;
                 case 4:
-                    printFile(fileMinecraft());
+                    printFile(graphMinecraft());
                     break;
                 case 5:
-                    printFile(fileMortalKombat());
+                    printFile(graphMortalKombat());
                     break;
                 case 6:
-                    printFile(fileOvercooked());
+                    printFile(graphOvercooked());
                     break;
                 case 7:
-                    printFile(fileWitcher3());
+                    printFile(graphWitcher3());
                     break;
             }
 
@@ -87,76 +87,61 @@ public class Client {
     }
 
 
-/*    public static void printGamesByPublisher(){
-        String publisher = readKey("editora");
-        printGamesByKey(2, publisher, 3);
-    }*/
-
-    public static void printGamesByPublisher(){
-        String publisher = readKey("editora");
-        int publisherColumn = 2;
-        int categoryColumn = 3;
-        int gameColumn = 4;
-
-        // Busca linhas do ficheiro em que a editora corresponta à pesquisada
-        String[][] matrixByPublisher = filterFileToMatrix(fileVendas(), true, publisher, publisherColumn);
-
-        if (matrixByPublisher.length < 1){
-            System.out.println("\n-------- ");
-            System.out.println("Editora não encontrada.");
-            System.out.println("--------\n");
-        } else {
-            System.out.println("\n********** Catálogo " + matrixByPublisher[0][publisherColumn] + " **********\n");
-
-            // Encontra categorias existentes na matriz correspondente à editora pesquisada
-            String[] categorySet = arrayToSet(extractColumnToArray(matrixByPublisher, categoryColumn));
-
-            // Para cada categoria
-            for (int i = 0; i < categorySet.length; i++){
-                System.out.println(categorySet[i]);
-                // Encontrar jogos correspondentes à categoria
-                String[][] gamesByCategory = filterMatrixByColumn(matrixByPublisher, categorySet[i], categoryColumn);
-                String[] gamesByCategorySet = arrayToSet(extractColumnToArray(gamesByCategory, gameColumn));
-                // Imprimir jogos
-                printArray(gamesByCategorySet);
-                System.out.println();
-            }
-            System.out.println("\n****** Fim do Catálogo " + matrixByPublisher[0][publisherColumn] + " ******");
-        }
+    public static void printGamesByPublisher() {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Pesquisar por editora: ");
+        String publisher = input.nextLine();
+        printGamesByKey(publisher, 2, 3);
     }
 
-
-    public static void printGamesByCategory(){
-        String category = readKey("categoria");
-        printGamesByKey(3, category, 2);
+    public static void printGamesByCategory() {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Pesquisar por categoria: ");
+        String category = input.nextLine();
+        printGamesByKey(category, 3, 2);
     }
 
-    public static void printNewestGame(){
+    public static void printNewestGame() {
         cleanScreen();
-        String[] set = arrayToSet(columnToSet(fileVendas(), 4, true));
+        String[] set = arrayToSet(fileColumnToSet(fileVendas(), 4, true));
 
         System.out.println(" ------------- ");
         System.out.println("Jogo mais recente: ");
-        System.out.println(set[set.length-1]);
+        System.out.println(set[set.length - 1]);
         System.out.println(" ------------- ");
         System.out.println();
     }
 
-    public static boolean triangularNumber(int num){
+
+    public static String[] filterGames(String[][] matrix, String key, int column) {
+        final int gameColumn = 4;
+        String[] arrayUniqueElements = new String[matrix.length];
+        int countElements = 0;
+
+        String game;
+        for (int i = 0; i < matrix.length; i++) {
+            game = matrix[i][gameColumn];
+
+            // Imprimir jogos correspondentes ao filtro aplicado
+            if (key.equalsIgnoreCase(matrix[i][column])) {
+                if (!arrayContains(arrayUniqueElements, game, countElements)) {
+                    arrayUniqueElements[countElements] = game;
+                    countElements++;
+                }
+            }
+        }
+        return arrayToSet(cleanEmptyArrayPlaces(arrayUniqueElements, countElements));
+    }
+
+    public static boolean triangularNumber(int num) {
         int i = 1;
         int soma = 0;
 
-        while (soma < num){
+        while (soma < num) {
             soma += i;
             i++;
         }
         return soma == num;
-    }
-
-    public static String readKey(String key){
-        Scanner input = new Scanner(System.in);
-        System.out.print("Pesquisar por " + key + ": ");
-        return input.nextLine();
     }
 
 }

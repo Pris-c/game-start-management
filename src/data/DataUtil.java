@@ -1,11 +1,10 @@
 package data;
 
-import static file.FileHandler.fileVendas;
-import static file.FileHandler.filterFileToMatrix;
-import static gameStart.Util.printArray;
+import java.util.Scanner;
+
+import static file.FileHandler.*;
 
 public class DataUtil {
-
 
     public static String[] extractColumnToArray(String[][] matrix, int column){
         String[] columnArray = new String[matrix.length];
@@ -49,16 +48,43 @@ public class DataUtil {
         return set;
     }
 
-    public static void getGamesByPublisher(String publisher){
+    public static void printGamesByKey(int key1Column, String key1, int key2Column){
 
-        String[][] gamesByPublisher = filterFileToMatrix(fileVendas(), true, publisher, 2);
-        String[] columnCategory = extractColumnToArray(gamesByPublisher, 3);
-        String[] categorySet = arrayToSet(columnCategory);
+        String[][] gamesByKey1 = filterFileToMatrix(fileVendas(), true, key1, key1Column);
 
-        // Percorrer matrix uma vez pra cada categoria
-        // Imprimir sem repetição de Jogos
-        // arrayToSetPrinting
+        String[] key2Array = extractColumnToArray(gamesByKey1, key2Column);
 
+        String[] key2Set = arrayToSet(key2Array);
+
+        System.out.println("\n********** Catálogo " + key1 + " **********");
+
+        // Percorrer cada categoria relacionada à editora
+        for (int i = 0; i < key2Set.length; i++){
+            System.out.println();
+            System.out.println("-- " + key2Set[i] + " --");
+
+            // Criar um array para guardar os jogos relacionados à categoria
+            String[] gamesByKey2 = new String[gamesByKey1.length];
+            int countGamesArray = 0;
+
+            // Percorrer matriz buscando pelos jogos na categoria
+            for (int k = 0; k < gamesByKey1.length; k++){
+
+                // Compara categoria do setCategory, com a categoria da linha da matriz
+                if (key2Set[i].equalsIgnoreCase(gamesByKey1[k][key2Column])){
+                    String game = gamesByKey1[k][4];
+
+                    for (int j = 0; (j < countGamesArray) || (j == 0); j++){
+                        if(!arrayContain(gamesByKey2, game, countGamesArray)){
+                            gamesByKey2[countGamesArray] = game;
+                            countGamesArray++;
+                            System.out.println(countGamesArray + ". " + game);
+                        }
+                    }
+                }
+            }
+        }
+        System.out.println("\n********** Fim Catálogo " + key1 + " **********");
     }
 
 }

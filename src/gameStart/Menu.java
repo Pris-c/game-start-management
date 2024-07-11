@@ -2,10 +2,9 @@ package gameStart;
 
 import java.util.Scanner;
 
-import static data.Sales.printGamesCatalog;
+import static gameStart.Admin.*;
 import static gameStart.Client.*;
-import static gameStart.Util.cleanScreen;
-import static gameStart.Util.validateOption;
+import static gameStart.Util.*;
 
 public class Menu {
 
@@ -30,8 +29,9 @@ public class Menu {
                     clientMenu();
                     break;
                 case 2:
-                    // TODO: Chamar menu administrador
-                    System.out.println("OPÇÃO ADMINISTRADOR");
+                    if(login()){
+                        adminMenu();
+                    }
                     break;
             }
 
@@ -73,11 +73,10 @@ public class Menu {
                     printGraph();
                     break;
                 case 5:
-                    // TODO: Imprimir Catálogo Editora
-                    // printPublisherCatalog();
+                    printGamesByPublisher();
                     break;
                 case 6:
-                    // TODO: Imprimir Catálogo Categoria
+                    printGamesByCategory();
                     break;
                 case 7:
                     printNewestGame();
@@ -87,7 +86,66 @@ public class Menu {
         } while (option != 0);
     }
 
-    public static void adminMenu(){}
+    public static void adminMenu(){
+        int option;
+
+        do {
+
+            System.out.println();
+            System.out.println(" -- ÁREA DO ADMINISTRADOR -- ");
+            System.out.println("Escolha uma opção:");
+            System.out.println("1  - Consultar Ficheiros ");
+            System.out.println("2  - Consultar Total de Vendas");
+            System.out.println("3  - Consultar Lucro Total");
+            System.out.println("4  - Pesquisar Cliente");
+            System.out.println("5  - Consultar Jogo mais caro");
+            System.out.println("6  - Buscar Melhores Clientes");
+            System.out.println("7  - Buscar Categoria Mais Lucrativa");
+            System.out.println("8  - Pesquisar Vendas");
+            System.out.println("9  - Top 5 Jogos");
+            System.out.println("10 - Bottom 5 jogos");
+            System.out.println("0  - SAIR");
+            option = validateOption(0,7);
+
+            switch (option){
+                case 0:
+                    cleanScreen();
+                    break;
+                case 1:
+                    consultFile();
+                    break;
+                case 2:
+                    consultSalesTotal();
+                    break;
+                case 3:
+                    consultTotalProfit();
+                    break;
+                case 4:
+                    consultClient();
+                    break;
+                case 5:
+                    showMostExpensiveGame();
+                    // 5 - Consultar Jogo mais caro
+                    break;
+                case 6:
+                    // 6 - Buscar Melhores Clientes
+                    break;
+                case 7:
+                    // 7 - Buscar Categoria Mais Lucrativa
+                    break;
+                case 8:
+                    // 8 - Pesquisar Vendas
+                    break;
+                case 9:
+                    // 9 - Top 5 Jogos
+                    break;
+                case 10:
+                    // 10 - Bottom 5 jogos
+                    break;
+            }
+
+        } while (option != 0);
+    }
 
 
 

@@ -2,8 +2,7 @@ package gameStart;
 
 import java.util.Scanner;
 
-import static data.DataUtil.arrayToSet;
-import static data.DataUtil.extractColumnToArray;
+import static data.DataUtil.*;
 import static file.FileHandler.*;
 import static gameStart.Util.*;
 
@@ -34,6 +33,13 @@ public class Client {
             }
         }
         System.out.println();
+    }
+
+    public static void printGamesCatalog() {
+
+        System.out.println(" -- Catálogo de Jogos -- ");
+        printArray(columnToSet(fileVendas(), 4, true));
+        System.out.println(" -- Fim do Catálogo de Jogos -- ");
     }
 
     public static void printGraph(){
@@ -80,6 +86,18 @@ public class Client {
 
     }
 
+
+    public static void printGamesByPublisher(){
+        String publisher = readKey("editora");
+        printGamesByKey(2, publisher, 3);
+    }
+
+
+    public static void printGamesByCategory(){
+        String category = readKey("categoria");
+        printGamesByKey(3, category, 2);
+    }
+
     public static void printNewestGame(){
         cleanScreen();
         String[] set = arrayToSet(columnToSet(fileVendas(), 4, true));
@@ -91,9 +109,21 @@ public class Client {
         System.out.println();
     }
 
-    public static void printPublisherCatalog(){}
+    public static boolean triangularNumber(int num){
+        int i = 1;
+        int soma = 0;
 
+        while (soma < num){
+            soma += i;
+            i++;
+        }
+        return soma == num;
+    }
 
-
+    public static String readKey(String key){
+        Scanner input = new Scanner(System.in);
+        System.out.print("Pesquisar por " + key + ": ");
+        return input.nextLine();
+    }
 
 }

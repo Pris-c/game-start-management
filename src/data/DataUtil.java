@@ -1,7 +1,5 @@
 package data;
 
-import java.util.Scanner;
-
 import static file.FileHandler.*;
 
 public class DataUtil {
@@ -48,12 +46,42 @@ public class DataUtil {
         return set;
     }
 
+    public static String[][] filterMatrixByColumn(String[][] matrix, String value, int column){
+        String[][] newMatrix = new String[matrix.length][matrix[0].length];
+        int countLines = 0;
+
+        // Filtra linhas da matrix de acordo com valor e coluna informados
+        for (int i = 0; i < matrix.length; i++){
+            if (matrix[i][column].equalsIgnoreCase(value)){
+                newMatrix[countLines] = matrix[i];
+                countLines++;
+            }
+        }
+
+        String[][] filteredMatrix = cleanEmptyMatrixLines(newMatrix, countLines);
+        return filteredMatrix;
+    }
+
+    public static String[] cleanEmptyArrayPlaces(String[] array, int realSize){
+        String[] newArray = new String[realSize];
+        for (int i = 0; i < realSize; i++){
+            newArray[i] = array[i];
+        }
+        return newArray;
+    }
+    public static String[][] cleanEmptyMatrixLines(String[][] matrix, int realLines){
+        String[][] newMatrix = new String[realLines][matrix[0].length];
+        for (int i = 0; i < realLines; i++){
+            newMatrix[i] = matrix[i];
+        }
+        return newMatrix;
+    }
+
+
     public static void printGamesByKey(int key1Column, String key1, int key2Column){
 
         String[][] gamesByKey1 = filterFileToMatrix(fileVendas(), true, key1, key1Column);
-
         String[] key2Array = extractColumnToArray(gamesByKey1, key2Column);
-
         String[] key2Set = arrayToSet(key2Array);
 
         System.out.println("\n********** Catálogo " + key1 + " **********");

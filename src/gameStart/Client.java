@@ -87,9 +87,42 @@ public class Client {
     }
 
 
-    public static void printGamesByPublisher(){
+/*    public static void printGamesByPublisher(){
         String publisher = readKey("editora");
         printGamesByKey(2, publisher, 3);
+    }*/
+
+    public static void printGamesByPublisher(){
+        String publisher = readKey("editora");
+        int publisherColumn = 2;
+        int categoryColumn = 3;
+        int gameColumn = 4;
+
+        // Busca linhas do ficheiro em que a editora corresponta à pesquisada
+        String[][] matrixByPublisher = filterFileToMatrix(fileVendas(), true, publisher, publisherColumn);
+
+        if (matrixByPublisher.length < 1){
+            System.out.println("\n-------- ");
+            System.out.println("Editora não encontrada.");
+            System.out.println("--------\n");
+        } else {
+            System.out.println("\n********** Catálogo " + matrixByPublisher[0][publisherColumn] + " **********\n");
+
+            // Encontra categorias existentes na matriz correspondente à editora pesquisada
+            String[] categorySet = arrayToSet(extractColumnToArray(matrixByPublisher, categoryColumn));
+
+            // Para cada categoria
+            for (int i = 0; i < categorySet.length; i++){
+                System.out.println(categorySet[i]);
+                // Encontrar jogos correspondentes à categoria
+                String[][] gamesByCategory = filterMatrixByColumn(matrixByPublisher, categorySet[i], categoryColumn);
+                String[] gamesByCategorySet = arrayToSet(extractColumnToArray(gamesByCategory, gameColumn));
+                // Imprimir jogos
+                printArray(gamesByCategorySet);
+                System.out.println();
+            }
+            System.out.println("\n****** Fim do Catálogo " + matrixByPublisher[0][publisherColumn] + " ******");
+        }
     }
 
 

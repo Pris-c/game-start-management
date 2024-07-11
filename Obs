@@ -5,3 +5,4 @@ TODO:   Implementar validação de inputs com try catch
         Conferir se matriz/array retornado tem tamanho != 0
         Refatorar printClientsByKey;
         Criar limparArray
+        Validar se o item a ser pesquisado existe *array>0

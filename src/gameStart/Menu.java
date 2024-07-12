@@ -106,11 +106,9 @@ public class Menu {
             System.out.println("10 - Bottom 5 jogos");
             System.out.println("0  - SAIR");
             option = validateOption(0, 10);
+            cleanScreen();
 
             switch (option) {
-                case 0:
-                    cleanScreen();
-                    break;
                 case 1:
                     consultFile();
                     break;

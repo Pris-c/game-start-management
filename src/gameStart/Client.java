@@ -63,6 +63,7 @@ public class Client {
             option = validateOption(0, 7);
 
             cleanScreen();
+
             switch (option) {
                 case 1:
                     printFile(graphCallOfDuty());
@@ -86,6 +87,7 @@ public class Client {
                     printFile(graphWitcher3());
                     break;
             }
+            openCloseOutput();
         } while (option != 0);
     }
 

@@ -20,9 +20,10 @@ public class Admin {
         if (checkLogin(username, password)) {
             return true;
         } else {
-            System.out.println(" ------ ");
+            cleanScreen();
+            openCloseOutput();
             System.out.println("Utilizador ou senha incorretos.");
-            System.out.println(" ------ ");
+            openCloseOutput();
             return false;
         }
     }
@@ -43,33 +44,33 @@ public class Admin {
                 case 1:
                     System.out.println("\n   ---  VENDAS   ---");
                     printMatrix(extractCSVFileToMatrix(fileVendas(), false));
-                    System.out.println(" -------------------\n");
                     break;
                 case 2:
                     System.out.println("   ---  CLIENTES   ---");
                     printMatrix(extractCSVFileToMatrix(fileClientes(), false));
-                    System.out.println(" -------------------");
                     break;
                 case 3:
                     System.out.println("   ---  CATEGORIAS   ---");
                     printMatrix(extractCSVFileToMatrix(fileCategorias(), false));
-                    System.out.println(" -------------------");
                     break;
             }
         } while (option != 0);
+
     }
 
     public static void consultSalesTotal() {
+        openCloseOutput();
         System.out.println("   ---  ANÁLISE DE VENDAS   ---");
         System.out.println("Vendas efetuadas: " + (countLines(fileVendas()) - 1));
         System.out.println("Valor total: € " + sumColumn(fileVendas(), true, 5));
-        System.out.println(" -------------------");
+        openCloseOutput();
     }
 
     public static void consultTotalProfit() {
+        openCloseOutput();
         System.out.println("   ---  CONSULTA AO LUCRO   ---");
-        System.out.println("Lucro total: " + calculateTotalProfit());
-        System.out.println(" -------------------");
+        System.out.println("Lucro total: € " + calculateTotalProfit());
+        openCloseOutput();
     }
 
     public static void consultClient() {
@@ -79,16 +80,18 @@ public class Admin {
         String clientId = input.next();
         String[] client = findClient(clientId);
 
+        cleanScreen();
+        openCloseOutput();
         if (client.length == 0) {
             System.out.println("\nID " + clientId + " não encontrado.");
         } else {
-            System.out.println("\n------- CLIENTE ENCONTRADO -------");
+            System.out.println("------- CLIENTE ENCONTRADO -------");
             System.out.println("ID:\t\t\t\t" + clientId);
             System.out.println("Nome: \t\t\t" + client[1]);
             System.out.println("Telemóvel:\t\t" + client[2]);
             System.out.println("Email: \t\t\t" + client[3]);
         }
-        System.out.println(" -------------------\n");
+        openCloseOutput();
     }
 
     public static void showMostExpensiveGame() {
@@ -107,10 +110,12 @@ public class Admin {
 
         String game;
         String id;
+
+        openCloseOutput();
         System.out.println("-- Jogo mais caro: --");
         System.out.println("Valor: " + " € " + biggestValue);
         for (int i = 0; i < gamesSet.length; i++) {
-            System.out.println("Jogo: " + gamesSet[i]);
+            System.out.println("\nJogo: " + gamesSet[i]);
             countClientsId = 0;
 
             for (int l = 0; l < expensiveGames.length; l++) {
@@ -128,14 +133,14 @@ public class Admin {
             String[] clientsIdSet = arrayToSet(clientsIdArray);
 
             String[] client;
-            System.out.println("\nComprado por: ");
+            System.out.println("-- Comprado por: ");
             System.out.println("ID\t\tCliente");
             for (int k = 0; k < clientsIdSet.length; k++) {
                 client = findClient(clientsIdSet[k]);
                 System.out.println(client[0] + "\t\t" + client[1]);
             }
-            System.out.println(" --------------  ");
         }
+        openCloseOutput();
     }
 
 
@@ -143,27 +148,28 @@ public class Admin {
         String[] bestClients = findBestsClients();
         int clientName_fileClient = 1;
         String[] client;
+        openCloseOutput();
         System.out.println(" --- MELHORES CLIENTES --- ");
         System.out.println();
 
         for (int i = 0; i < bestClients.length; i++) {
             client = findClient(bestClients[i]);
             System.out.println("Cliente " + bestClients[i] + "   |   " + client[clientName_fileClient]);
-            System.out.println();
-            System.out.println(" Jogos comprados:");
+            System.out.println("-- Jogos comprados:");
             printGamesByClient(bestClients[i]);
         }
-        System.out.println("---------\n");
+        openCloseOutput();
     }
 
     public static void findBestCategory() {
         String[][] profitByCategory = calculateProfitByCategory();
         String[] cateforyProfit = findBiggestColumnValue(profitByCategory, 1, 0);
 
+        openCloseOutput();
         System.out.println("--- Categoria mais lucrativa ---");
         System.out.println("Categoria: " + cateforyProfit[0]);
         System.out.println("Lucro: € " + cateforyProfit[1]);
-        System.out.println(" -------------- ");
+        openCloseOutput();
     }
 
     public static void detailGameSale() {
@@ -179,27 +185,29 @@ public class Admin {
             System.out.print("Jogo a pesquisar: ");
             String game = input.nextLine();
 
+            cleanScreen();
             if (!game.equals("0")) {
 
                 String[][] salesRegister = filterFileToMatrix(fileVendas(), true, game, gameColumn);
                 if (salesRegister.length == 0) {
-                    System.out.println(" --------- ");
+                    openCloseOutput();
                     System.out.println("Nenhuma venda encontrada");
-                    System.out.println(" --------- ");
+                    openCloseOutput();
 
                 } else {
                     System.out.println();
+                    openCloseOutput();
                     System.out.println(" ------- VENDAS POR JOGO --------- ");
                     System.out.println("Jogo: " + salesRegister[0][gameColumn]);
-                    System.out.println("Comprado por: \n");
+                    System.out.println("-- Comprado por:");
                     String[] clientIds = arrayToSet(extractColumnToArray(salesRegister, clientIdColumn));
 
                     String[] client;
                     for (int i = 0; i < clientIds.length; i++) {
                         client = findClient(clientIds[i]);
-                        printClient(client);
+                        printClientArray(client);
                     }
-                    System.out.println(" --------- ");
+                    openCloseOutput();
                 }
             } else {
                 finish = true;
@@ -210,7 +218,8 @@ public class Admin {
     }
 
     public static void printTop5Games() {
-        System.out.println("\n---- TOP 5 GAMES ----");
+        openCloseOutput();
+        System.out.println("---- TOP 5 GAMES ----");
         String[][] topFiveGames = getTop5Games();
 
         System.out.print("Jogo: ");
@@ -228,11 +237,12 @@ public class Admin {
             }
             System.out.println(topFiveGames[i][1]);
         }
-        System.out.println("--------------\n");
+        openCloseOutput();
     }
 
     public static void printBottom5Games() {
-        System.out.println("\n---- BOTTOM 5 GAMES ----");
+        openCloseOutput();
+        System.out.println("---- BOTTOM 5 GAMES ----");
         String[][] bottonFiveGames = getBottom5Games();
 
         System.out.print("Jogo: ");
@@ -250,7 +260,7 @@ public class Admin {
             }
             System.out.println("€ " + bottonFiveGames[i][1]);
         }
-        System.out.println("--------------\n");
+        openCloseOutput();
     }
 
 

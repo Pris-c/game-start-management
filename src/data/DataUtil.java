@@ -102,9 +102,7 @@ public class DataUtil {
         String[][] matrixByKey = filterFileToMatrix(fileVendas(), true, cliendId, clientIdColumn);
 
         if (matrixByKey.length < 1) {
-            openCloseOutput();
             System.out.println("Nenhum Jogo Encontrado.");
-            openCloseOutput();
         } else {
             printArray(extractColumnToArray(matrixByKey, gameColumn));
         }

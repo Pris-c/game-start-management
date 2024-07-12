@@ -17,6 +17,7 @@ public class Util {
 
     public static void printMatrix(String[][] matrix) {
         int columnLength = 35;
+        openCloseOutput();
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
                 String element = matrix[i][j];
@@ -27,6 +28,7 @@ public class Util {
             }
             System.out.println();
         }
+        openCloseOutput();
     }
 
     public static int validateOption(int min, int max) {
@@ -76,14 +78,17 @@ public class Util {
         System.out.println("\n----------------");
     }
 
-/*    public static void printClientArray(String[] client){
-
-        System.out.println("ID Cliente:\t\t" + client[0]);
-        System.out.println("Nome: \t\t\t" + client[1]);
-        System.out.println("Telemóvel:\t\t" + client[2]);
-        System.out.println("Email: \t\t\t" + client[3]);
-        System.out.println("\n----------------");
-    }*/
+    public static void printClientArray(String[] client){
+        int columnLength = 35;
+        for (int j = 0; j < client.length; j++) {
+            String element = client[j];
+            System.out.print(element);
+            for (int space = 0; space < (columnLength - element.length()); space++){
+                System.out.print(" ");
+            }
+        }
+        System.out.println();
+    }
 
 
 

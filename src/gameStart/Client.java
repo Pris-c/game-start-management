@@ -21,11 +21,14 @@ public class Client {
         clientMail = input.nextLine();
 
         cleanScreen();
-        System.out.println("Cliente registrado com sucesso: " + clientName + " | " + clientPhone + " | " + clientMail);
+        openCloseOutput();
+        System.out.println("Cliente registrado com sucesso!\n " + clientName + " | " + clientPhone + " | " + clientMail);
+        openCloseOutput();
     }
 
 
     public static void findParking() {
+        openCloseOutput();
         System.out.println("Vagas disponíveis: ");
         for (int i = 0; i <= 121; i += 5) {
             if (triangularNumber(i)) {
@@ -33,13 +36,14 @@ public class Client {
             }
         }
         System.out.println();
+        openCloseOutput();
     }
 
     public static void printGamesCatalog() {
-
-        System.out.println(" -- Catálogo de Jogos -- ");
+        openCloseOutput();
+        System.out.println(" -- Catálogo de Jogos -- \n");
         printArray(fileColumnToSet(fileVendas(), 4, true));
-        System.out.println(" -- Fim do Catálogo de Jogos -- ");
+        openCloseOutput();
     }
 
     public static void printGraph() {
@@ -55,9 +59,10 @@ public class Client {
             System.out.println("5 - Mortal Kombat");
             System.out.println("6 - Overcooked");
             System.out.println("7 - Witcher 3");
-            System.out.println("\033[3mPara voltar, digite \"0\".");
+            System.out.println(" Para voltar, digite \"0\".");
             option = validateOption(0, 7);
 
+            cleanScreen();
             switch (option) {
                 case 1:
                     printFile(graphCallOfDuty());
@@ -81,56 +86,49 @@ public class Client {
                     printFile(graphWitcher3());
                     break;
             }
-
         } while (option != 0);
-
     }
 
 
     public static void printGamesByPublisher() {
-        Scanner input = new Scanner(System.in);
-        System.out.print("Pesquisar por editora: ");
-        String publisher = input.nextLine();
-        printGamesByKey(publisher, 2, 3);
+        boolean finish = false;
+        do {
+            Scanner input = new Scanner(System.in);
+            System.out.println(" Para retornar, digite \"0\".");
+            System.out.print("Pesquisar por editora: ");
+            String publisher = input.nextLine();
+            if (publisher.equals("0")){
+                finish = true;
+                cleanScreen();
+            } else {
+                printGamesByKey(publisher, 2, 3);
+            }
+        } while (!finish);
     }
 
     public static void printGamesByCategory() {
-        Scanner input = new Scanner(System.in);
-        System.out.print("Pesquisar por categoria: ");
-        String category = input.nextLine();
-        printGamesByKey(category, 3, 2);
+        boolean finish = false;
+        do {
+            Scanner input = new Scanner(System.in);
+            System.out.println(" Para retornar, digite \"0\".");
+            System.out.print("Pesquisar por categoria: ");
+            String category = input.nextLine();
+            if (category.equals("0")){
+                finish = true;
+                cleanScreen();
+            } else {
+                printGamesByKey(category, 3, 2);
+            }
+        } while (!finish);
     }
 
     public static void printNewestGame() {
         cleanScreen();
         String[] set = arrayToSet(fileColumnToSet(fileVendas(), 4, true));
 
-        System.out.println(" ------------- ");
-        System.out.println("Jogo mais recente: ");
-        System.out.println(set[set.length - 1]);
-        System.out.println(" ------------- ");
-        System.out.println();
-    }
-
-
-    public static String[] filterGames(String[][] matrix, String key, int column) {
-        final int gameColumn = 4;
-        String[] arrayUniqueElements = new String[matrix.length];
-        int countElements = 0;
-
-        String game;
-        for (int i = 0; i < matrix.length; i++) {
-            game = matrix[i][gameColumn];
-
-            // Imprimir jogos correspondentes ao filtro aplicado
-            if (key.equalsIgnoreCase(matrix[i][column])) {
-                if (!arrayContains(arrayUniqueElements, game, countElements)) {
-                    arrayUniqueElements[countElements] = game;
-                    countElements++;
-                }
-            }
-        }
-        return arrayToSet(cleanEmptyArrayPlaces(arrayUniqueElements, countElements));
+        openCloseOutput();
+        System.out.println("Jogo mais recente: " + set[set.length - 1]) ;
+        openCloseOutput();
     }
 
     public static boolean triangularNumber(int num) {

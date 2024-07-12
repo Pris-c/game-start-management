@@ -1,5 +1,6 @@
 package gameStart;
 
+import static file.FileHandler.*;
 import static gameStart.Admin.*;
 import static gameStart.Client.*;
 import static gameStart.Util.cleanScreen;
@@ -9,6 +10,7 @@ public class Menu {
 
     public static void startApp() {
         int option;
+        printFile(graphGameStart());
 
         do {
 
@@ -16,13 +18,12 @@ public class Menu {
             System.out.println("Informe sua categoria de utilizador: ");
             System.out.println("1 - CLIENTE");
             System.out.println("2 - ADMINISTRADOR");
-            System.out.println("\033[3mPara encerrar, digite \"0\".");
+            System.out.println(" Para encerrar, digite \"0\".");
             option = validateOption(0, 2);
 
             switch (option) {
                 case 0:
-                    // TODO: Show copyrights
-                    System.out.println("APRESENTAR COPYRIGHTS");
+                    printCopyrights();
                     break;
                 case 1:
                     clientMenu();
@@ -104,7 +105,7 @@ public class Menu {
             System.out.println("9  - Top 5 Jogos");
             System.out.println("10 - Bottom 5 jogos");
             System.out.println("0  - SAIR");
-            option = validateOption(0, 7);
+            option = validateOption(0, 10);
 
             switch (option) {
                 case 0:
@@ -124,22 +125,21 @@ public class Menu {
                     break;
                 case 5:
                     showMostExpensiveGame();
-                    // 5 - Consultar Jogo mais caro
                     break;
                 case 6:
-                    // 6 - Buscar Melhores Clientes
+                    printBestClients();
                     break;
                 case 7:
-                    // 7 - Buscar Categoria Mais Lucrativa
+                    findBestCategory();
                     break;
                 case 8:
-                    // 8 - Pesquisar Vendas
+                    detailGameSale();
                     break;
                 case 9:
-                    // 9 - Top 5 Jogos
+                    printTop5Games();
                     break;
                 case 10:
-                    // 10 - Bottom 5 jogos
+                    printBottom5Games();
                     break;
             }
 

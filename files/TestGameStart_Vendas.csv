@@ -1,9 +1,10 @@
 idVenda;idCliente;editora;categoria;jogo;valor
-V00-003;2;Xbox Game Studios;Estrategia;Age of Empires IV;35.99
 V00-001;1;CD Projekt Red;RPG;The Witcher III: Wild Hunt;39.99
-V00-002;1;Team Cherry;Metroidvania;Hollow Knight;19.99
 V00-002;1;Team Cherry;Metroidvania;Hollow Knight;19.99
 V00-003;2;Xbox Game Studios;Estrategia;Age of Empires IV;35.99
 V00-004;3;Sony;Festa;Sing Star;9.90
-V00-002;1;Team Cherry;Metroidvania;Hollow Knight;19.99
 V00-005;4;Xbox Game Studios;MMORPG;Sea of Thieves;15.90
+V00-006;5;EA;Desporto;FIFA 21;29.90
+V00-009;6;EA;Desporto;UFC 23;69.90
+V00-010;6;CAPCOM;Luta;Street Fighter VI;55.90
+V00-012;7;IO Interactive;Tiros;Hitman;52.90

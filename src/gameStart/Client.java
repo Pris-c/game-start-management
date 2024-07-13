@@ -8,6 +8,14 @@ import static gameStart.Util.*;
 
 public class Client {
 
+    /**
+     *
+     * Permite a simulação do registro de um novo cliente
+     * Lê nome, telefonde para contacto e endereço de e-mail,
+     * em seguida exibe na tela a mensagem de registro bem sucedido,
+     * juntatamente com os dados inseridos pelo utilizador.
+     *
+     */
     public static void register() {
         Scanner input = new Scanner(System.in);
         String clientName, clientPhone, clientMail;
@@ -27,6 +35,12 @@ public class Client {
     }
 
 
+    /**
+     *
+     * Simula a busca de vagas de estacionamento disponíveis
+     * por meio da impressão dos numeros triangulares e multiplos de cinco entre 0 e 121.
+     *
+     */
     public static void findParking() {
         openCloseOutput();
         System.out.println("Vagas disponíveis: ");
@@ -39,6 +53,11 @@ public class Client {
         openCloseOutput();
     }
 
+    /**
+     *
+     * Exibe no console o conteúdo do ficheio de vendas.
+     *
+     */
     public static void printGamesCatalog() {
         openCloseOutput();
         System.out.println(" -- Catálogo de Jogos -- \n");
@@ -46,6 +65,13 @@ public class Client {
         openCloseOutput();
     }
 
+    /**
+     *
+     * Exibe no console um dos gráficos ASCII disponíveis,
+     * de acordo com a escolha do utilizador.
+     * A função trabalha em loop, até o utilizador informar o valor "0".
+     *
+     */
     public static void printGraph() {
         int option;
 
@@ -87,11 +113,17 @@ public class Client {
                     printFile(graphWitcher3());
                     break;
             }
-            openCloseOutput();
         } while (option != 0);
     }
 
 
+    /**
+     *
+     * Permite que o utilizador escolha uma editora,
+     * pequisa e imprime os jogos desta editora, oganizados por categoria.
+     * A função fica em loop, até o utilizador informar o valor "0".
+     *
+     */
     public static void printGamesByPublisher() {
         boolean finish = false;
         do {
@@ -108,6 +140,13 @@ public class Client {
         } while (!finish);
     }
 
+    /**
+     *
+     * Permite que o utilizador escolha uma categoria,
+     * pequisa e imprime os jogos desta categoria, oganizados por editora.
+     * A função fica em loop, até o utilizador informar o valor "0".
+     *
+     */
     public static void printGamesByCategory() {
         boolean finish = false;
         do {
@@ -124,6 +163,11 @@ public class Client {
         } while (!finish);
     }
 
+    /**
+     *
+     * Exibe o ultimo jogo a aparecer no ficheiro de vendas pela primeira vez.,
+     *
+     */
     public static void printNewestGame() {
         cleanScreen();
         String[] set = arrayToSet(fileColumnToSet(fileVendas(), 4, true));
@@ -133,6 +177,14 @@ public class Client {
         openCloseOutput();
     }
 
+
+    /**
+     *
+     * Verifica se um determinado número é triângular.
+     * @param num o numero a ser verificado
+     * @return true, se o numero for triangular, false, se o numero nao for triangular
+     *
+     */
     public static boolean triangularNumber(int num) {
         int i = 1;
         int soma = 0;

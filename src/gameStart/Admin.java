@@ -8,6 +8,12 @@ import static gameStart.Util.*;
 
 public class Admin {
 
+    /**
+     *
+     * Lê nome de usuario e senha e valida as informações.
+     * Exibe mensagem de erro se a checagem do login for false.
+     * @return true, se bem sucedido, e false, se a combinação de credenciais for inválida.
+     */
     public static boolean login() {
 
         Scanner input = new Scanner(System.in);
@@ -28,6 +34,12 @@ public class Admin {
         }
     }
 
+    /**
+     *
+     * Permite que o usuario escolha um dos ficheiros disponíveis para se exibido na tela.
+     * Funciona em loop, até que o utilizador informe o valor "0".
+     *
+     */
     public static void consultFile() {
         int option;
 
@@ -58,6 +70,11 @@ public class Admin {
 
     }
 
+    /**
+     *
+     * Imprime o número e valor total de vendas efetuadas, de acordo com o ficheiro de vendas.
+     *
+     */
     public static void consultSalesTotal() {
         openCloseOutput();
         System.out.println("   ---  ANÁLISE DE VENDAS   ---");
@@ -66,6 +83,11 @@ public class Admin {
         openCloseOutput();
     }
 
+    /**
+     *
+     * Exibe o valor do lucro tatal.
+     *
+     */
     public static void consultTotalProfit() {
         openCloseOutput();
         System.out.println("   ---  CONSULTA AO LUCRO   ---");
@@ -73,6 +95,12 @@ public class Admin {
         openCloseOutput();
     }
 
+    /**
+     *
+     * Lê o id de um cliente e exibe suas informações, se encontrado.
+     * Se não houver cliente com o id informado, exibe mensagem de aviso.
+     *
+     */
     public static void consultClient() {
         Scanner input = new Scanner(System.in);
         System.out.println("   ---  PESQUISA DE CLIENTES   ---");
@@ -83,7 +111,7 @@ public class Admin {
         cleanScreen();
         openCloseOutput();
         if (client.length == 0) {
-            System.out.println("\nID " + clientId + " não encontrado.");
+            System.out.println("ID " + clientId + " não encontrado.");
         } else {
             System.out.println("------- CLIENTE ENCONTRADO -------");
             System.out.println("ID:\t\t\t\t" + clientId);
@@ -94,6 +122,12 @@ public class Admin {
         openCloseOutput();
     }
 
+    /**
+     *
+     * Exibe as informações referente ao jogo mais caro do arquivo de vendas:
+     * Valor e nome dos jogos, e lista de clientes que o compraram.
+     *
+     */
     public static void showMostExpensiveGame() {
         int valueColumn = 5;
         int gameColumn = 4;
@@ -112,7 +146,7 @@ public class Admin {
         String id;
 
         openCloseOutput();
-        System.out.println("-- Jogo mais caro: --");
+        System.out.println("-- Jogo mais caro --");
         System.out.println("Valor: " + " € " + biggestValue);
         for (int i = 0; i < gamesSet.length; i++) {
             System.out.println("\nJogo: " + gamesSet[i]);
@@ -144,6 +178,11 @@ public class Admin {
     }
 
 
+    /**
+     *
+     * Exibe as informações dos clientes que mais gastaram.
+     *
+     */
     public static void printBestClients() {
         String[] bestClients = findBestsClients();
         int clientName_fileClient = 1;
@@ -161,6 +200,12 @@ public class Admin {
         openCloseOutput();
     }
 
+
+    /**
+     *
+     * Exibe a categoria que mais gerou lucro e o valor do lucro gerado.
+     *
+     */
     public static void findBestCategory() {
         String[][] profitByCategory = calculateProfitByCategory();
         String[] cateforyProfit = findBiggestColumnValue(profitByCategory, 1, 0);
@@ -172,6 +217,11 @@ public class Admin {
         openCloseOutput();
     }
 
+    /**
+     *
+     * Lê o nome de um jogo e exibe os clientes que já o compraram.
+     *
+     */
     public static void detailGameSale() {
         int gameColumn = 4;
         int clientIdColumn = 1;
@@ -205,7 +255,7 @@ public class Admin {
                     String[] client;
                     for (int i = 0; i < clientIds.length; i++) {
                         client = findClient(clientIds[i]);
-                        printClientArray(client);
+                        printClient(client);
                     }
                     openCloseOutput();
                 }
@@ -217,6 +267,11 @@ public class Admin {
         } while (!finish);
     }
 
+    /**
+     *
+     * Exibe os 5 jogos que mais deram lucro e o respectivo valor do lucro
+     *
+     */
     public static void printTop5Games() {
         openCloseOutput();
         System.out.println("---- TOP 5 GAMES ----");
@@ -240,6 +295,11 @@ public class Admin {
         openCloseOutput();
     }
 
+    /**
+     *
+     * Exibe os 5 jogos que menos deram lucro e o respectivo valor do lucro.
+     *
+     */
     public static void printBottom5Games() {
         openCloseOutput();
         System.out.println("---- BOTTOM 5 GAMES ----");

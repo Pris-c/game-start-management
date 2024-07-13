@@ -6,8 +6,17 @@ import static gameStart.Client.*;
 import static gameStart.Util.cleanScreen;
 import static gameStart.Util.validateOption;
 
+
 public class Menu {
 
+    /**
+     * Inicia a aplicação com a exibição do menu principal.
+     * Recebe input do utilizador e direciona para o menu escolhido:
+     * 1 - para menu do cliente,
+     * 2 - para menu do administrador.
+     * Funciona com um loop, que é encerrado quando o utilizador informa o valor "0".
+     *
+     */
     public static void startApp() {
         int option;
         printFile(graphGameStart());
@@ -38,6 +47,13 @@ public class Menu {
         } while (option != 0);
     }
 
+
+    /**
+     * Exibe o menu com as opções disponíveis para o utilizador do tipo Cliente.
+     * Direciona o utilizador para a função que atende à opção escolhida.
+     * Funciona com um loop, que é encerrado quando o utilizador informa o valor "0".
+     *
+     */
     public static void clientMenu() {
         int option;
 
@@ -86,8 +102,15 @@ public class Menu {
         } while (option != 0);
     }
 
+    /**
+     * Exibe o menu com as opções disponíveis para o utilizador do tipo Administrador.
+     * Direciona o utilizador para a função que atende à opção escolhida.
+     * Funciona com um loop, que é encerrado quando o utilizador informa o valor "0".
+     *
+     */
     public static void adminMenu() {
         int option;
+        cleanScreen();
 
         do {
 

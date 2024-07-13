@@ -5,6 +5,12 @@ import java.util.Scanner;
 
 public class Util {
 
+    /**
+     * Recebe um array de Strings e imprime cada elemento em uma linha.
+     * As linhas são numeradas e formatadas com um padrão de espaçamento.
+     *
+     * @param array Array de Strings a ser impresso.
+     */
     public static void printArray(String[] array) {
         for (int i = 0; i < array.length; i++) {
             if (i < 9){
@@ -15,6 +21,12 @@ public class Util {
         }
     }
 
+    /**
+     * Recebe uma matriz de Strings e imprime suas informações.
+     * Cada linha é formatadas com um padrão de espaçamento.
+     *
+     * @param matrix Matriz de Strings a ser impressa.
+     */
     public static void printMatrix(String[][] matrix) {
         int columnLength = 35;
         openCloseOutput();
@@ -31,6 +43,15 @@ public class Util {
         openCloseOutput();
     }
 
+    /**
+     * Lê e valida input do utilizador.
+     * A opção inserida pelo utilizador deve ser do tipo int e estar entre o intervalo de valores definido.
+     * Funciona em loop, que é encerrado quando um valor válido é inserido.
+     *
+     * @param min O valor mínimo do intervalo.
+     * @param max O valor máximo do intervalo.
+     * @return A opção válida inserida pelo utilizador.
+     */
     public static int validateOption(int min, int max) {
         Scanner input = new Scanner(System.in);
         int option = -1;
@@ -59,6 +80,10 @@ public class Util {
         return option;
     }
 
+    /**
+     * Imprime uma série de linhas vazias para simular a limpeza do console.
+     *
+     */
     public static void cleanScreen() {
         for (int i = 0; i < 50; i++){
             System.out.println("\n");
@@ -66,19 +91,23 @@ public class Util {
     }
 
 
+    /**
+     * Imprime uma linha de asteriscos para delimitar o inicio e o fim de
+     * uma sessão de output.
+     *
+     */
     public static void openCloseOutput(){
         System.out.println("\n*****************************************************************************************\n");
     }
 
-    public static void printClient(String[] client){
-        System.out.println("ID Cliente:\t\t" + client[0]);
-        System.out.println("Nome: \t\t\t" + client[1]);
-        System.out.println("Telemóvel:\t\t" + client[2]);
-        System.out.println("Email: \t\t\t" + client[3]);
-        System.out.println("\n----------------");
-    }
 
-    public static void printClientArray(String[] client){
+    /**
+     * Recebe um array de Strings contendo informações de um cliente.
+     * Imprime o conteúdo em uma linha, formatada com um padrão de espaçamento.
+     *
+     * @param client O array de Strings com as informações do cliente.
+     */
+    public static void printClient(String[] client){
         int columnLength = 35;
         for (int j = 0; j < client.length; j++) {
             String element = client[j];
@@ -89,8 +118,5 @@ public class Util {
         }
         System.out.println();
     }
-
-
-
 
 }

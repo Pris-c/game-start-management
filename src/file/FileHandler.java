@@ -2,16 +2,17 @@ package file;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import static data.DataUtil.*;
-import static gameStart.Util.openCloseOutput;
+import static gameStart.Util.*;
 
 public class FileHandler {
 
     /**
-     *
      * Retorna um File criado a partir da localização do ficheiro de vendas.
+     *
      * @return File correspondente ao ficheiro de vendas.
      */
     public static File fileVendas() {
@@ -19,8 +20,8 @@ public class FileHandler {
     }
 
     /**
-     *
      * Retorna um File criado a partir da localização do ficheiro de Admins.
+     *
      * @return File correspondente ao ficheiro de Admins.
      */
     public static File fileAdmins() {
@@ -28,8 +29,8 @@ public class FileHandler {
     }
 
     /**
-     *
      * Retorna um File criado a partir da localização do ficheiro de Categorias.
+     *
      * @return File correspondente ao ficheiro de Categorias.
      */
     public static File fileCategorias() {
@@ -37,8 +38,8 @@ public class FileHandler {
     }
 
     /**
-     *
      * Retorna um File criado a partir da localização do ficheiro de Clientes.
+     *
      * @return File correspondente ao ficheiro de Clientes.
      */
     public static File fileClientes() {
@@ -46,8 +47,8 @@ public class FileHandler {
     }
 
     /**
-     *
      * Retorna um File criado a partir da localização do ficheiro que contém o gráfico em ASCII de Copyrights.
+     *
      * @return File correspondente ao ficheiro do gráfico de Copyrights.
      */
     public static File graphCopyright() {
@@ -55,8 +56,8 @@ public class FileHandler {
     }
 
     /**
-     *
      * Retorna um File criado a partir da localização do ficheiro que contém o gráfico em ASCII da Game Start.
+     *
      * @return File correspondente ao ficheiro do gráfico da Game Start.
      */
     public static File graphGameStart() {
@@ -64,8 +65,8 @@ public class FileHandler {
     }
 
     /**
-     *
      * Retorna um File criado a partir da localização do ficheiro que contém o gráfico em ASCII do jogo Call Of Duty.
+     *
      * @return File correspondente ao ficheiro do gráfico do jogo Call Of Duty.
      */
     public static File graphCallOfDuty() {
@@ -73,8 +74,8 @@ public class FileHandler {
     }
 
     /**
-     *
      * Retorna um File criado a partir da localização do ficheiro que contém o gráfico em ASCII do jogo Fifa.
+     *
      * @return File correspondente ao ficheiro do gráfico do jogo Fifa.
      */
     public static File graphFifa() {
@@ -82,8 +83,8 @@ public class FileHandler {
     }
 
     /**
-     *
      * Retorna um File criado a partir da localização do ficheiro que contém o gráfico em ASCII do jogo Hollow Knight.
+     *
      * @return File correspondente ao ficheiro do gráfico do jogo Hollow Knight.
      */
     public static File graphHollowKnight() {
@@ -91,8 +92,8 @@ public class FileHandler {
     }
 
     /**
-     *
      * Retorna um File criado a partir da localização do ficheiro que contém o gráfico em ASCII do jogo Minecraft.
+     *
      * @return File correspondente ao ficheiro do gráfico do jogo Minecraft.
      */
     public static File graphMinecraft() {
@@ -100,8 +101,8 @@ public class FileHandler {
     }
 
     /**
-     *
      * Retorna um File criado a partir da localização do ficheiro que contém o gráfico em ASCII do jogo Mortal Kombat.
+     *
      * @return File correspondente ao ficheiro do gráfico do jogo Motal Kombat.
      */
     public static File graphMortalKombat() {
@@ -109,8 +110,8 @@ public class FileHandler {
     }
 
     /**
-     *
      * Retorna um File criado a partir da localização do ficheiro que contém o gráfico em ASCII do jogo Overcooked.
+     *
      * @return File correspondente ao ficheiro do gráfico do jogo Overcooked.
      */
     public static File graphOvercooked() {
@@ -118,8 +119,8 @@ public class FileHandler {
     }
 
     /**
-     *
      * Retorna um File criado a partir da localização do ficheiro que contém o gráfico em ASCII do jogo Witcher 3.
+     *
      * @return File correspondente ao ficheiro do gráfico do jogo Witcher 3.
      */
     public static File graphWitcher3() {
@@ -128,13 +129,11 @@ public class FileHandler {
 
 
     /**
-     *
      * Extrai conteudo de um ficheiro para uma matriz.
      *
-     * @param file ficheiro CSV a ser extraído para matriz.
+     * @param file         ficheiro CSV a ser extraído para matriz.
      * @param ignoreHeader boolean a indicar se o cabeçalho do ficheiro deve ser ignorado.
      * @return Matriz com o conteúdo do ficheiro.
-     *
      */
     public static String[][] extractCSVFileToMatrix(File file, boolean ignoreHeader) {
         try {
@@ -158,20 +157,20 @@ public class FileHandler {
 
         } catch (FileNotFoundException ex) {
             printAdvetisingFileNotFound();
+        } catch (NoSuchElementException e) {
+            printAdvetisingNoSuchElementException();
         }
         return new String[0][0];
     }
 
     /**
-     *
      * Extrai ficheiro CSV para matriz, filtrando apenas as linhas correspondentes à chave indicada.
      *
-     * @param file ficheiro CSV a ser extraído para matriz.
+     * @param file         ficheiro CSV a ser extraído para matriz.
      * @param ignoreHeader boolean a indicar se o cabeçalho do ficheiro deve ser ignorado.
-     * @param key chave utilizado para filtrar as linhas de interesse
-     * @param column Índex da coluna onde a chave deve ser procurada
+     * @param key          chave utilizado para filtrar as linhas de interesse
+     * @param column       Índex da coluna onde a chave deve ser procurada
      * @return Matriz com as informações filtradas do ficheiro.
-     *
      */
     public static String[][] filterFileToMatrix(File file, boolean ignoreHeader, String key, int column) {
         try {
@@ -185,7 +184,6 @@ public class FileHandler {
             }
 
             String[][] matrix = new String[countLines][countColumns];
-
             int lineIndex = 0;
             String[] line;
             while (fileScanner.hasNext()) {
@@ -200,12 +198,13 @@ public class FileHandler {
 
         } catch (FileNotFoundException ex) {
             printAdvetisingFileNotFound();
+        } catch (NoSuchElementException e) {
+            printAdvetisingNoSuchElementException();
         }
         return new String[0][0];
     }
 
     /**
-     *
      * Conta o total de linhas do ficheiro
      *
      * @param file ficheiro a ter linhas contadas
@@ -222,12 +221,13 @@ public class FileHandler {
             return countLines;
         } catch (FileNotFoundException e) {
             printAdvetisingFileNotFound();
+        } catch (NoSuchElementException e) {
+            printAdvetisingNoSuchElementException();
         }
         return 0;
     }
 
     /**
-     *
      * Conta o numero de colunas de um ficheiro CSV, com base em sua primeira linha.
      *
      * @param file ficheiro a ter colunas contadas
@@ -241,6 +241,8 @@ public class FileHandler {
             }
         } catch (FileNotFoundException e) {
             printAdvetisingFileNotFound();
+        } catch (NoSuchElementException e) {
+            printAdvetisingNoSuchElementException();
         }
 
         return 0;
@@ -248,8 +250,8 @@ public class FileHandler {
 
 
     /**
-     *
      * Imprime o conteúdo de um ficheiro.
+     *
      * @param file ficheiro a ser impresso.
      */
     public static void printFile(File file) {
@@ -262,14 +264,14 @@ public class FileHandler {
             System.out.println("\n\n");
         } catch (FileNotFoundException e) {
             printAdvetisingFileNotFound();
+        } catch (NoSuchElementException e) {
+            printAdvetisingNoSuchElementException();
         }
         openCloseOutput();
     }
 
     /**
-     *
      * Exibe na tela o conteúdo do ficheiro de Copyrights
-     *
      */
     public static void printCopyrights() {
         try {
@@ -280,16 +282,17 @@ public class FileHandler {
             System.out.println("\n\n");
         } catch (FileNotFoundException e) {
             printAdvetisingFileNotFound();
+        } catch (NoSuchElementException e) {
+            printAdvetisingNoSuchElementException();
         }
     }
 
 
     /**
-     *
      * Extrai conteudo de uma coluna do ficheiro para um array de elementos unicos.
      *
-     * @param file ficheiro a ter a coluna filtrada e extraida pra um array
-     * @param column Índex da coluna a ser extraída
+     * @param file         ficheiro a ter a coluna filtrada e extraida pra um array
+     * @param column       Índex da coluna a ser extraída
      * @param ignoreHeader boolean a indicar se o cabeçalho do ficheiro deve ser ignorado.
      * @return Array com elementos da coluna sem repetição
      */
@@ -322,6 +325,8 @@ public class FileHandler {
 
         } catch (FileNotFoundException e) {
             printAdvetisingFileNotFound();
+        } catch (NoSuchElementException e) {
+            printAdvetisingNoSuchElementException();
         }
 
         return new String[0];
@@ -329,20 +334,6 @@ public class FileHandler {
 
 
     /**
-     *
-     * Esibe mensagem de Ficheiro não encontrado.
-     *
-     */
-    public static void printAdvetisingFileNotFound() {
-        openCloseOutput();
-        System.out.println("Arquivo não encontrado. Por favor, contacte o suporte.");
-        openCloseOutput();
-
-    }
-
-
-    /**
-     *
      * Compara valores de utilizador e senha com as informações do ficheiro de Admins.
      *
      * @param username username que identifica o utilizador
@@ -367,16 +358,17 @@ public class FileHandler {
 
         } catch (FileNotFoundException e) {
             printAdvetisingFileNotFound();
+        } catch (NoSuchElementException e) {
+            printAdvetisingNoSuchElementException();
         }
 
         return success;
     }
 
     /**
-     *
      * Soma os valores de uma coluna de um ficheiro
      *
-     * @param file ficheiro a ter valores de uma coluna somados.
+     * @param file         ficheiro a ter valores de uma coluna somados.
      * @param ignoreHeader boolean a indicar se o cabeçalho do ficheiro deve ser ignorado.     * @param column
      * @return double com o valor total da soma.
      */
@@ -398,6 +390,8 @@ public class FileHandler {
 
         } catch (FileNotFoundException e) {
             printAdvetisingFileNotFound();
+        } catch (NoSuchElementException e) {
+            printAdvetisingNoSuchElementException();
         }
 
         return sum;
@@ -405,7 +399,6 @@ public class FileHandler {
 
 
     /**
-     *
      * Calcula o lucro total com base no ficheiros de vendas e de categorias.
      *
      * @return valor total do lucro.
@@ -421,7 +414,7 @@ public class FileHandler {
             int posCateg = 3;
             int posValue = 5;
 
-            String line[];
+            String[] line;
             double margin;
             double value;
             boolean sair;
@@ -444,13 +437,14 @@ public class FileHandler {
             }
         } catch (FileNotFoundException e) {
             printAdvetisingFileNotFound();
+        } catch (NoSuchElementException e) {
+            printAdvetisingNoSuchElementException();
         }
 
         return profit;
     }
 
     /**
-     *
      * Calcula o lucro obtido separado por categoria de jogos.
      *
      * @return Matriz com as informações da categoria e lucro total obtido pelos jogos que a pertencem.
@@ -459,19 +453,16 @@ public class FileHandler {
 
         // Extrai fichiero de categorias para matriz
         String[][] categoriesProfit = extractCSVFileToMatrix(fileCategorias(), true);
-        double profit = 0;
+        double profit;
 
         double[] profitsArray = new double[categoriesProfit.length];
-        for (int c = 0; c < profitsArray.length; c++){
-            profitsArray[c] = 0;
-        }
 
         try {
             Scanner fileScanner = new Scanner(fileVendas());
             int posCateg = 3;
             int posValue = 5;
 
-            String line[];
+            String[] line;
             double margin;
             double value;
             boolean sair;
@@ -495,11 +486,13 @@ public class FileHandler {
             }
         } catch (FileNotFoundException e) {
             printAdvetisingFileNotFound();
+        } catch (NoSuchElementException e) {
+            printAdvetisingNoSuchElementException();
         }
 
         // Salva os arrays de categorias e lucros em uma matriz de Strings.
         String[][] categoriesProfitMatrix = new String[categoriesProfit.length][2];
-        for (int count = 0; count < categoriesProfit.length; count++){
+        for (int count = 0; count < categoriesProfit.length; count++) {
             categoriesProfitMatrix[count][0] = categoriesProfit[count][0];
             categoriesProfitMatrix[count][1] = String.valueOf(profitsArray[count]);
         }
@@ -507,7 +500,6 @@ public class FileHandler {
     }
 
     /**
-     *
      * Calcula o lucro obtido por cada jogo.
      *
      * @return Matriz com as informações de nome do jogo e lucro correspondente.
@@ -521,10 +513,6 @@ public class FileHandler {
 
         double[] profitsArray = new double[gamesSet.length];
 
-        for (int c = 0; c < profitsArray.length; c++){
-            profitsArray[c] = 0;
-        }
-
         try {
             Scanner fileScanner = new Scanner(fileVendas());
             fileScanner.nextLine();
@@ -533,34 +521,36 @@ public class FileHandler {
             double margin;
             double value;
             boolean sair;
-            double profit = 0;
+            double profit;
             while (fileScanner.hasNext()) {
                 line = fileScanner.nextLine().split(";");
                 sair = false;
 
-                    for (int i = 0; i < categoriesProfit.length && !sair; i++) {
-                        // Comparar categoria da linha com categoria do categoriesProfit
-                        if (line[categoryColumn].equals(categoriesProfit[i][0])) {
-                            value = Double.parseDouble(line[valueColumn]);
-                            margin = Double.parseDouble(categoriesProfit[i][1]) / 100;
-                            profit = value * margin;
+                for (int i = 0; i < categoriesProfit.length && !sair; i++) {
+                    // Comparar categoria da linha com categoria do categoriesProfit
+                    if (line[categoryColumn].equals(categoriesProfit[i][0])) {
+                        value = Double.parseDouble(line[valueColumn]);
+                        margin = Double.parseDouble(categoriesProfit[i][1]) / 100;
+                        profit = value * margin;
 
-                            // Comparar game da linha com game do gameSet
-                            for (int w = 0; w < gamesSet.length && !sair; w++){
-                                if (gamesSet[w].equals(line[gamesColumn])){
-                                    profitsArray[w] += profit;
-                                    sair = true;
-                                }
+                        // Comparar game da linha com game do gameSet
+                        for (int w = 0; w < gamesSet.length && !sair; w++) {
+                            if (gamesSet[w].equals(line[gamesColumn])) {
+                                profitsArray[w] += profit;
+                                sair = true;
                             }
                         }
                     }
+                }
             }
         } catch (FileNotFoundException e) {
             printAdvetisingFileNotFound();
+        } catch (NoSuchElementException e) {
+            printAdvetisingNoSuchElementException();
         }
 
         String[][] gameProfitMatrix = new String[gamesSet.length][2];
-        for (int count = 0; count < gamesSet.length; count++){
+        for (int count = 0; count < gamesSet.length; count++) {
             gameProfitMatrix[count][0] = gamesSet[count];
             gameProfitMatrix[count][1] = String.valueOf(profitsArray[count]);
         }
@@ -569,7 +559,6 @@ public class FileHandler {
 
 
     /**
-     *
      * Busca informações de um cliente a partir de seu id.
      *
      * @param clientId id do cliente a ser pesquisado
@@ -592,18 +581,19 @@ public class FileHandler {
 
         } catch (FileNotFoundException e) {
             printAdvetisingFileNotFound();
+        } catch (NoSuchElementException e) {
+            printAdvetisingNoSuchElementException();
         }
 
         return new String[0];
     }
 
     /**
-     *
      * Encontra o maior valor de uma coluna do ficheiro.
      *
-     * @param file ficheiro a ser analisado.
+     * @param file         ficheiro a ser analisado.
      * @param ignoreHeader boolean que determina se a primeira linha do ficheiro deve ser ignorada.
-     * @param column coluna a ter o maior valor buscado.
+     * @param column       coluna a ter o maior valor buscado.
      * @return String represnetando o maior valor encontrado na coluna.
      */
     public static String findBiggestValue(File file, boolean ignoreHeader, int column) {
@@ -631,10 +621,11 @@ public class FileHandler {
 
         } catch (FileNotFoundException e) {
             printAdvetisingFileNotFound();
+        } catch (NoSuchElementException e) {
+            printAdvetisingNoSuchElementException();
         }
         return stringBiggestValue;
     }
-
 
 
 }

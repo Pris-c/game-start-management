@@ -15,7 +15,6 @@ public class Menu {
      * 1 - para menu do cliente,
      * 2 - para menu do administrador.
      * Funciona com um loop, que é encerrado quando o utilizador informa o valor "0".
-     *
      */
     public static void startApp() {
         int option;
@@ -52,7 +51,6 @@ public class Menu {
      * Exibe o menu com as opções disponíveis para o utilizador do tipo Cliente.
      * Direciona o utilizador para a função que atende à opção escolhida.
      * Funciona com um loop, que é encerrado quando o utilizador informa o valor "0".
-     *
      */
     public static void clientMenu() {
         int option;
@@ -106,7 +104,6 @@ public class Menu {
      * Exibe o menu com as opções disponíveis para o utilizador do tipo Administrador.
      * Direciona o utilizador para a função que atende à opção escolhida.
      * Funciona com um loop, que é encerrado quando o utilizador informa o valor "0".
-     *
      */
     public static void adminMenu() {
         int option;

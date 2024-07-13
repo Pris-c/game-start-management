@@ -2,19 +2,18 @@ package gameStart;
 
 import java.util.Scanner;
 
-import static data.DataUtil.*;
+import static data.DataUtil.arrayToSet;
+import static data.DataUtil.printGamesByKey;
 import static file.FileHandler.*;
 import static gameStart.Util.*;
 
 public class Client {
 
     /**
-     *
      * Permite a simulação do registro de um novo cliente
      * Lê nome, telefonde para contacto e endereço de e-mail,
      * em seguida exibe na tela a mensagem de registro bem sucedido,
      * juntatamente com os dados inseridos pelo utilizador.
-     *
      */
     public static void register() {
         Scanner input = new Scanner(System.in);
@@ -36,10 +35,8 @@ public class Client {
 
 
     /**
-     *
      * Simula a busca de vagas de estacionamento disponíveis
      * por meio da impressão dos numeros triangulares e multiplos de cinco entre 0 e 121.
-     *
      */
     public static void findParking() {
         openCloseOutput();
@@ -54,9 +51,7 @@ public class Client {
     }
 
     /**
-     *
      * Exibe no console o conteúdo do ficheio de vendas.
-     *
      */
     public static void printGamesCatalog() {
         openCloseOutput();
@@ -66,11 +61,9 @@ public class Client {
     }
 
     /**
-     *
      * Exibe no console um dos gráficos ASCII disponíveis,
      * de acordo com a escolha do utilizador.
      * A função trabalha em loop, até o utilizador informar o valor "0".
-     *
      */
     public static void printGraph() {
         int option;
@@ -118,11 +111,9 @@ public class Client {
 
 
     /**
-     *
      * Permite que o utilizador escolha uma editora,
      * pequisa e imprime os jogos desta editora, oganizados por categoria.
      * A função fica em loop, até o utilizador informar o valor "0".
-     *
      */
     public static void printGamesByPublisher() {
         boolean finish = false;
@@ -131,7 +122,7 @@ public class Client {
             System.out.println(" Para retornar, digite \"0\".");
             System.out.print("Pesquisar por editora: ");
             String publisher = input.nextLine();
-            if (publisher.equals("0")){
+            if (publisher.equals("0")) {
                 finish = true;
                 cleanScreen();
             } else {
@@ -141,11 +132,9 @@ public class Client {
     }
 
     /**
-     *
      * Permite que o utilizador escolha uma categoria,
      * pequisa e imprime os jogos desta categoria, oganizados por editora.
      * A função fica em loop, até o utilizador informar o valor "0".
-     *
      */
     public static void printGamesByCategory() {
         boolean finish = false;
@@ -154,7 +143,7 @@ public class Client {
             System.out.println(" Para retornar, digite \"0\".");
             System.out.print("Pesquisar por categoria: ");
             String category = input.nextLine();
-            if (category.equals("0")){
+            if (category.equals("0")) {
                 finish = true;
                 cleanScreen();
             } else {
@@ -164,26 +153,23 @@ public class Client {
     }
 
     /**
-     *
      * Exibe o ultimo jogo a aparecer no ficheiro de vendas pela primeira vez.,
-     *
      */
     public static void printNewestGame() {
         cleanScreen();
         String[] set = arrayToSet(fileColumnToSet(fileVendas(), 4, true));
 
         openCloseOutput();
-        System.out.println("Jogo mais recente: " + set[set.length - 1]) ;
+        System.out.println("Jogo mais recente: " + set[set.length - 1]);
         openCloseOutput();
     }
 
 
     /**
-     *
      * Verifica se um determinado número é triângular.
+     *
      * @param num o numero a ser verificado
      * @return true, se o numero for triangular, false, se o numero nao for triangular
-     *
      */
     public static boolean triangularNumber(int num) {
         int i = 1;

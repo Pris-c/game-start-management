@@ -1,9 +1,0 @@
-TODO:   Implementar validação de inputs com try catch
-        Retornar para o menu inicial quando utilizador encerrar sessão
-        Trabalhar apresentação no console
-        Utilizar padroes ASCII art
-        Conferir se matriz/array retornado tem tamanho != 0
-        Refatorar printClientsByKey;
-        Criar limparArray
-        Validar se o item a ser pesquisado existe *array>0
-        // Tratar arrayToSet para elementos nulos

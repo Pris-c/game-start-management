@@ -9,9 +9,9 @@ import static gameStart.Util.*;
 public class Admin {
 
     /**
-     *
      * Lê nome de usuario e senha e valida as informações.
      * Exibe mensagem de erro se a checagem do login for false.
+     *
      * @return true, se bem sucedido, e false, se a combinação de credenciais for inválida.
      */
     public static boolean login() {
@@ -35,10 +35,8 @@ public class Admin {
     }
 
     /**
-     *
      * Permite que o usuario escolha um dos ficheiros disponíveis para se exibido na tela.
      * Funciona em loop, até que o utilizador informe o valor "0".
-     *
      */
     public static void consultFile() {
         int option;
@@ -71,9 +69,7 @@ public class Admin {
     }
 
     /**
-     *
      * Imprime o número e valor total de vendas efetuadas, de acordo com o ficheiro de vendas.
-     *
      */
     public static void consultSalesTotal() {
         openCloseOutput();
@@ -84,9 +80,7 @@ public class Admin {
     }
 
     /**
-     *
      * Exibe o valor do lucro tatal.
-     *
      */
     public static void consultTotalProfit() {
         openCloseOutput();
@@ -96,10 +90,8 @@ public class Admin {
     }
 
     /**
-     *
      * Lê o id de um cliente e exibe suas informações, se encontrado.
      * Se não houver cliente com o id informado, exibe mensagem de aviso.
-     *
      */
     public static void consultClient() {
         Scanner input = new Scanner(System.in);
@@ -123,10 +115,8 @@ public class Admin {
     }
 
     /**
-     *
      * Exibe as informações referente ao jogo mais caro do arquivo de vendas:
      * Valor e nome dos jogos, e lista de clientes que o compraram.
-     *
      */
     public static void showMostExpensiveGame() {
         int valueColumn = 5;
@@ -179,9 +169,7 @@ public class Admin {
 
 
     /**
-     *
      * Exibe as informações dos clientes que mais gastaram.
-     *
      */
     public static void printBestClients() {
         String[] bestClients = findBestsClients();
@@ -202,9 +190,7 @@ public class Admin {
 
 
     /**
-     *
      * Exibe a categoria que mais gerou lucro e o valor do lucro gerado.
-     *
      */
     public static void findBestCategory() {
         String[][] profitByCategory = calculateProfitByCategory();
@@ -218,9 +204,7 @@ public class Admin {
     }
 
     /**
-     *
      * Lê o nome de um jogo e exibe os clientes que já o compraram.
-     *
      */
     public static void detailGameSale() {
         int gameColumn = 4;
@@ -228,7 +212,7 @@ public class Admin {
         boolean finish = false;
 
         Scanner input = new Scanner(System.in);
-        do{
+        do {
 
             System.out.println("   ---  PESQUISA DE VENDAS   ---");
             System.out.println(" Para voltar, digite \"0\".");
@@ -268,9 +252,7 @@ public class Admin {
     }
 
     /**
-     *
      * Exibe os 5 jogos que mais deram lucro e o respectivo valor do lucro
-     *
      */
     public static void printTop5Games() {
         openCloseOutput();
@@ -286,7 +268,7 @@ public class Admin {
         int columnLength = 35;
         for (int i = 0; i < topFiveGames.length; i++) {
             String element = topFiveGames[i][0];
-            System.out.print((i+1) + " " + element);
+            System.out.print((i + 1) + " " + element);
             for (int space = 0; space < (columnLength - element.length()); space++) {
                 System.out.print(" ");
             }
@@ -296,9 +278,7 @@ public class Admin {
     }
 
     /**
-     *
      * Exibe os 5 jogos que menos deram lucro e o respectivo valor do lucro.
-     *
      */
     public static void printBottom5Games() {
         openCloseOutput();
@@ -314,7 +294,7 @@ public class Admin {
         int columnLength = 35;
         for (int i = 0; i < bottonFiveGames.length; i++) {
             String element = bottonFiveGames[i][0];
-            System.out.print((i+1) + " " + element);
+            System.out.print((i + 1) + " " + element);
             for (int space = 0; space < (columnLength - element.length()); space++) {
                 System.out.print(" ");
             }

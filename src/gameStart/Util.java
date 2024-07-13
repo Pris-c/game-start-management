@@ -13,7 +13,7 @@ public class Util {
      */
     public static void printArray(String[] array) {
         for (int i = 0; i < array.length; i++) {
-            if (i < 9){
+            if (i < 9) {
                 System.out.println("0" + (i + 1) + ".\t" + array[i]);
             } else {
                 System.out.println((i + 1) + ".\t" + array[i]);
@@ -34,7 +34,7 @@ public class Util {
             for (int j = 0; j < matrix[0].length; j++) {
                 String element = matrix[i][j];
                 System.out.print(element);
-                for (int space = 0; space < (columnLength - element.length()); space++){
+                for (int space = 0; space < (columnLength - element.length()); space++) {
                     System.out.print(" ");
                 }
             }
@@ -54,27 +54,27 @@ public class Util {
      */
     public static int validateOption(int min, int max) {
         Scanner input = new Scanner(System.in);
-        int option = -1;
+        int option;
         boolean validInput;
 
-            do {
-                validInput = true;
-                System.out.print(">> ");
+        do {
+            validInput = true;
+            System.out.print(">> ");
 
-                try{
-                    option = input.nextInt();
-                } catch (InputMismatchException e){
-                    validInput = false;
-                    option = -1;
-                }
+            try {
+                option = input.nextInt();
+            } catch (InputMismatchException e) {
+                validInput = false;
+                option = -1;
+            }
 
-                if (option < min || option > max) {
-                    validInput = false;
-                    System.out.println("\n-- Opção Inválida! Por favor, tente novamente. --");
-                    input.nextLine();
-                }
+            if (option < min || option > max) {
+                validInput = false;
+                System.out.println("\n-- Opção Inválida! Por favor, tente novamente. --");
+                input.nextLine();
+            }
 
-            } while (!validInput);
+        } while (!validInput);
 
         cleanScreen();
         return option;
@@ -82,10 +82,9 @@ public class Util {
 
     /**
      * Imprime uma série de linhas vazias para simular a limpeza do console.
-     *
      */
     public static void cleanScreen() {
-        for (int i = 0; i < 50; i++){
+        for (int i = 0; i < 50; i++) {
             System.out.println("\n");
         }
     }
@@ -94,9 +93,8 @@ public class Util {
     /**
      * Imprime uma linha de asteriscos para delimitar o inicio e o fim de
      * uma sessão de output.
-     *
      */
-    public static void openCloseOutput(){
+    public static void openCloseOutput() {
         System.out.println("\n*****************************************************************************************\n");
     }
 
@@ -107,16 +105,37 @@ public class Util {
      *
      * @param client O array de Strings com as informações do cliente.
      */
-    public static void printClient(String[] client){
+    public static void printClient(String[] client) {
         int columnLength = 35;
         for (int j = 0; j < client.length; j++) {
             String element = client[j];
             System.out.print(element);
-            for (int space = 0; space < (columnLength - element.length()); space++){
+            for (int space = 0; space < (columnLength - element.length()); space++) {
                 System.out.print(" ");
             }
         }
         System.out.println();
+    }
+
+
+    /**
+     * Exibe mensagem de Ficheiro não encontrado.
+     */
+    public static void printAdvetisingFileNotFound() {
+        openCloseOutput();
+        System.out.println("Arquivo não encontrado. Por favor, contacte o suporte.");
+        openCloseOutput();
+
+    }
+
+    /**
+     * Exibe mensagem de Ficheiro vazio
+     */
+    public static void printAdvetisingNoSuchElementException() {
+        openCloseOutput();
+        System.out.println("Não há informações a serem lidas no ficheiro.");
+        openCloseOutput();
+
     }
 
 }

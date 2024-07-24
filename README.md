@@ -1,5 +1,7 @@
 # GameStart Management System
 
+![GSmanag.png](GSmanag.png)
+
 ## Overview
 
 The GameStart Management System is a Java application designed to help the GameStart video game store manage their business operations. The system provides features for analyzing sales, managing customer data, and handling administrative tasks through different user roles (ADMIN and CLIENT).

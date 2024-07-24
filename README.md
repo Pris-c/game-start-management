@@ -1,6 +1,6 @@
 # GameStart Management System
 
-![GSmanag.png](GSmanag.png)
+![GSmanag.png](GSmanag1.png)
 
 ## Overview
 

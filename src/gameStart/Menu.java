@@ -22,7 +22,7 @@ public class Menu {
 
         do {
 
-            System.out.println(" --- Seja bem vindo à Game Star! ---");
+            System.out.println(" --- Seja bem vindo à Game Start! ---");
             System.out.println("Informe sua categoria de utilizador: ");
             System.out.println("1 - CLIENTE");
             System.out.println("2 - ADMINISTRADOR");

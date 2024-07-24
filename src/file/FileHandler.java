@@ -11,117 +11,117 @@ import static gameStart.Util.*;
 public class FileHandler {
 
     /**
-     * Retorna um File criado a partir da localização do ficheiro de vendas.
+     * Returns a {@link File} created from the location of the sales file.
      *
-     * @return File correspondente ao ficheiro de vendas.
+     * @return The {@link File} corresponding to the sales file.
      */
     public static File fileVendas() {
         return new File("files/GameStart_Vendas.csv");
     }
 
     /**
-     * Retorna um File criado a partir da localização do ficheiro de Admins.
+     * Returns a {@link File} created from the location of the admins file.
      *
-     * @return File correspondente ao ficheiro de Admins.
+     * @return The {@link File} corresponding to the admins file.
      */
     public static File fileAdmins() {
         return new File("files/GameStart_Admins.csv");
     }
 
     /**
-     * Retorna um File criado a partir da localização do ficheiro de Categorias.
+     * Returns a {@link File} created from the location of the categories file.
      *
-     * @return File correspondente ao ficheiro de Categorias.
+     * @return The {@link File} corresponding to the categories file.
      */
     public static File fileCategorias() {
         return new File("files/GameStart_Categorias.csv");
     }
 
     /**
-     * Retorna um File criado a partir da localização do ficheiro de Clientes.
+     * Returns a {@link File} created from the location of the clients file.
      *
-     * @return File correspondente ao ficheiro de Clientes.
+     * @return The {@link File} corresponding to the clients file.
      */
     public static File fileClientes() {
         return new File("files/GameStart_Clientes.csv");
     }
 
     /**
-     * Retorna um File criado a partir da localização do ficheiro que contém o gráfico em ASCII de Copyrights.
+     * Returns a {@link File} created from the location of the ASCII graph file for copyrights.
      *
-     * @return File correspondente ao ficheiro do gráfico de Copyrights.
+     * @return The {@link File} corresponding to the ASCII graph of copyrights.
      */
     public static File graphCopyright() {
         return new File("files/GameStart_Copyright.txt");
     }
 
     /**
-     * Retorna um File criado a partir da localização do ficheiro que contém o gráfico em ASCII da Game Start.
+     * Returns a {@link File} created from the location of the ASCII graph file for Game Start.
      *
-     * @return File correspondente ao ficheiro do gráfico da Game Start.
+     * @return The {@link File} corresponding to the ASCII graph of Game Start.
      */
     public static File graphGameStart() {
         return new File("files/CatalogoGrafico/GameStart.txt");
     }
 
     /**
-     * Retorna um File criado a partir da localização do ficheiro que contém o gráfico em ASCII do jogo Call Of Duty.
+     * Returns a {@link File} created from the location of the ASCII graph file for Call of Duty.
      *
-     * @return File correspondente ao ficheiro do gráfico do jogo Call Of Duty.
+     * @return The {@link File} corresponding to the ASCII graph of Call of Duty.
      */
     public static File graphCallOfDuty() {
         return new File("files/CatalogoGrafico/callOfDuty.txt");
     }
 
     /**
-     * Retorna um File criado a partir da localização do ficheiro que contém o gráfico em ASCII do jogo Fifa.
+     * Returns a {@link File} created from the location of the ASCII graph file for FIFA.
      *
-     * @return File correspondente ao ficheiro do gráfico do jogo Fifa.
+     * @return The {@link File} corresponding to the ASCII graph of FIFA.
      */
     public static File graphFifa() {
         return new File("files/CatalogoGrafico/fifa.txt");
     }
 
     /**
-     * Retorna um File criado a partir da localização do ficheiro que contém o gráfico em ASCII do jogo Hollow Knight.
+     * Returns a {@link File} created from the location of the ASCII graph file for Hollow Knight.
      *
-     * @return File correspondente ao ficheiro do gráfico do jogo Hollow Knight.
+     * @return The {@link File} corresponding to the ASCII graph of Hollow Knight.
      */
     public static File graphHollowKnight() {
         return new File("files/CatalogoGrafico/hollowKnight.txt");
     }
 
     /**
-     * Retorna um File criado a partir da localização do ficheiro que contém o gráfico em ASCII do jogo Minecraft.
+     * Returns a {@link File} created from the location of the ASCII graph file for Minecraft.
      *
-     * @return File correspondente ao ficheiro do gráfico do jogo Minecraft.
+     * @return The {@link File} corresponding to the ASCII graph of Minecraft.
      */
     public static File graphMinecraft() {
         return new File("files/CatalogoGrafico/minecraft.txt");
     }
 
     /**
-     * Retorna um File criado a partir da localização do ficheiro que contém o gráfico em ASCII do jogo Mortal Kombat.
+     * Returns a {@link File} created from the location of the ASCII graph file for Mortal Kombat.
      *
-     * @return File correspondente ao ficheiro do gráfico do jogo Motal Kombat.
+     * @return The {@link File} corresponding to the ASCII graph of Mortal Kombat.
      */
     public static File graphMortalKombat() {
         return new File("files/CatalogoGrafico/mortalKombat.txt");
     }
 
     /**
-     * Retorna um File criado a partir da localização do ficheiro que contém o gráfico em ASCII do jogo Overcooked.
+     * Returns a {@link File} created from the location of the ASCII graph file for Overcooked.
      *
-     * @return File correspondente ao ficheiro do gráfico do jogo Overcooked.
+     * @return The {@link File} corresponding to the ASCII graph of Overcooked.
      */
     public static File graphOvercooked() {
         return new File("files/CatalogoGrafico/overcooked.txt");
     }
 
     /**
-     * Retorna um File criado a partir da localização do ficheiro que contém o gráfico em ASCII do jogo Witcher 3.
+     * Returns a {@link File} created from the location of the ASCII graph file for Witcher 3.
      *
-     * @return File correspondente ao ficheiro do gráfico do jogo Witcher 3.
+     * @return The {@link File} corresponding to the ASCII graph of Witcher 3.
      */
     public static File graphWitcher3() {
         return new File("files/CatalogoGrafico/witcher3.txt");
@@ -129,11 +129,11 @@ public class FileHandler {
 
 
     /**
-     * Extrai conteudo de um ficheiro para uma matriz.
+     * Extracts the content of a CSV file into a matrix.
      *
-     * @param file         ficheiro CSV a ser extraído para matriz.
-     * @param ignoreHeader boolean a indicar se o cabeçalho do ficheiro deve ser ignorado.
-     * @return Matriz com o conteúdo do ficheiro.
+     * @param file         The CSV file to be extracted into a matrix.
+     * @param ignoreHeader Whether to ignore the header of the file.
+     * @return A matrix with the contents of the file.
      */
     public static String[][] extractCSVFileToMatrix(File file, boolean ignoreHeader) {
         try {
@@ -164,13 +164,13 @@ public class FileHandler {
     }
 
     /**
-     * Extrai ficheiro CSV para matriz, filtrando apenas as linhas correspondentes à chave indicada.
+     * Extracts a CSV file into a matrix, filtering only the rows corresponding to the specified key.
      *
-     * @param file         ficheiro CSV a ser extraído para matriz.
-     * @param ignoreHeader boolean a indicar se o cabeçalho do ficheiro deve ser ignorado.
-     * @param key          chave utilizado para filtrar as linhas de interesse
-     * @param column       Índex da coluna onde a chave deve ser procurada
-     * @return Matriz com as informações filtradas do ficheiro.
+     * @param file         The CSV file to be extracted into a matrix.
+     * @param ignoreHeader Whether to ignore the header of the file.
+     * @param key          The key used to filter the rows of interest.
+     * @param column       The index of the column where the key should be searched.
+     * @return A matrix with the filtered information from the file.
      */
     public static String[][] filterFileToMatrix(File file, boolean ignoreHeader, String key, int column) {
         try {
@@ -205,10 +205,10 @@ public class FileHandler {
     }
 
     /**
-     * Conta o total de linhas do ficheiro
+     * Counts the total number of lines in a file.
      *
-     * @param file ficheiro a ter linhas contadas
-     * @return numero de linhas do ficheiro
+     * @param file The file to count lines in.
+     * @return The number of lines in the file.
      */
     public static int countLines(File file) {
         try {
@@ -228,10 +228,10 @@ public class FileHandler {
     }
 
     /**
-     * Conta o numero de colunas de um ficheiro CSV, com base em sua primeira linha.
+     * Counts the number of columns in a CSV file based on its first line.
      *
-     * @param file ficheiro a ter colunas contadas
-     * @return numero de colunas do ficheiro
+     * @param file The file to count columns in.
+     * @return The number of columns in the file.
      */
     public static int countColumns(File file) {
         try {
@@ -250,9 +250,9 @@ public class FileHandler {
 
 
     /**
-     * Imprime o conteúdo de um ficheiro.
+     * Prints the content of a file.
      *
-     * @param file ficheiro a ser impresso.
+     * @param file The file to be printed.
      */
     public static void printFile(File file) {
         openCloseOutput();
@@ -271,7 +271,7 @@ public class FileHandler {
     }
 
     /**
-     * Exibe na tela o conteúdo do ficheiro de Copyrights
+     * Prints the content of the copyrights file to the screen.
      */
     public static void printCopyrights() {
         try {
@@ -289,12 +289,12 @@ public class FileHandler {
 
 
     /**
-     * Extrai conteudo de uma coluna do ficheiro para um array de elementos unicos.
+     * Extracts the content of a column from the file into an array of unique elements.
      *
-     * @param file         ficheiro a ter a coluna filtrada e extraida pra um array
-     * @param column       Índex da coluna a ser extraída
-     * @param ignoreHeader boolean a indicar se o cabeçalho do ficheiro deve ser ignorado.
-     * @return Array com elementos da coluna sem repetição
+     * @param file         The file from which to filter and extract the column to an array.
+     * @param column       The index of the column to be extracted.
+     * @param ignoreHeader Boolean indicating whether the file's header should be ignored.
+     * @return An array containing unique elements from the column.
      */
     public static String[] fileColumnToSet(File file, int column, boolean ignoreHeader) {
         try {
@@ -312,7 +312,6 @@ public class FileHandler {
             String element;
             int countSetElements = 1;
 
-            // Este ciclo percorrer a coluna especificada em ao longo do arquivo e salvar valores de títulos distintos no columnArray
             while (fileScanner.hasNext()) {
                 element = fileScanner.nextLine().split(";")[column];
                 if (!arrayContains(columnArray, element, countSetElements)) {
@@ -334,11 +333,11 @@ public class FileHandler {
 
 
     /**
-     * Compara valores de utilizador e senha com as informações do ficheiro de Admins.
+     * Compares user and password values with the admin file information.
      *
-     * @param username username que identifica o utilizador
-     * @param password senha de acesso do utilizador
-     * @return true, se as informações corresponderem às credenciais de um utilizador, false, do contrário.
+     * @param username The username identifying the user.
+     * @param password The user's access password.
+     * @return true if the information matches a user's credentials, false otherwise.
      */
     public static boolean checkLogin(String username, String password) {
         boolean success = false;
@@ -366,11 +365,12 @@ public class FileHandler {
     }
 
     /**
-     * Soma os valores de uma coluna de um ficheiro
+     * Sums the values of a column from a file.
      *
-     * @param file         ficheiro a ter valores de uma coluna somados.
-     * @param ignoreHeader boolean a indicar se o cabeçalho do ficheiro deve ser ignorado.     * @param column
-     * @return double com o valor total da soma.
+     * @param file         The file from which to sum column values.
+     * @param ignoreHeader Boolean indicating whether the file's header should be ignored.
+     * @param column       The column to be summed.
+     * @return The total sum as a double.
      */
     public static double sumColumn(File file, boolean ignoreHeader, int column) {
         double sum = 0;
@@ -399,13 +399,12 @@ public class FileHandler {
 
 
     /**
-     * Calcula o lucro total com base no ficheiros de vendas e de categorias.
+     * Calculates the total profit based on sales and category files.
      *
-     * @return valor total do lucro.
+     * @return The total profit value.
      */
     public static double calculateTotalProfit() {
 
-        // Extrai informações das margens de lucro a serem aplicadas para cada categoria de jogos
         String[][] categoriesProfit = extractCSVFileToMatrix(fileCategorias(), true);
         double profit = 0;
 
@@ -419,13 +418,11 @@ public class FileHandler {
             double value;
             boolean sair;
 
-            // Lê o ficheiro de vendas, linha a linha
             while (fileScanner.hasNext()) {
                 line = fileScanner.nextLine().split(";");
 
                 sair = false;
 
-                // Identifica a categoria e o valor do jogo daquela linha, calcula o valor do lucro e acumula no lucro total
                 for (int i = 0; i < categoriesProfit.length && !sair; i++) {
                     if (line[posCateg].equals(categoriesProfit[i][0])) {
                         value = Double.parseDouble(line[posValue]);
@@ -445,13 +442,12 @@ public class FileHandler {
     }
 
     /**
-     * Calcula o lucro obtido separado por categoria de jogos.
+     * Calculates the profit obtained separated by game category.
      *
-     * @return Matriz com as informações da categoria e lucro total obtido pelos jogos que a pertencem.
+     * @return A matrix with category information and total profit obtained by games in that category.
      */
     public static String[][] calculateProfitByCategory() {
 
-        // Extrai fichiero de categorias para matriz
         String[][] categoriesProfit = extractCSVFileToMatrix(fileCategorias(), true);
         double profit;
 
@@ -468,12 +464,10 @@ public class FileHandler {
             boolean sair;
             fileScanner.nextLine();
 
-            // Percorre ficheiro de vendas
             while (fileScanner.hasNext()) {
                 line = fileScanner.nextLine().split(";");
                 sair = false;
 
-                // Comparar categoria da linha com categoria do categoriesProfit, calcula lucro e acumula no vetor de lucro.
                 for (int i = 0; i < categoriesProfit.length && !sair; i++) {
                     if (line[posCateg].equals(categoriesProfit[i][0])) {
                         value = Double.parseDouble(line[posValue]);
@@ -490,7 +484,6 @@ public class FileHandler {
             printAdvetisingNoSuchElementException();
         }
 
-        // Salva os arrays de categorias e lucros em uma matriz de Strings.
         String[][] categoriesProfitMatrix = new String[categoriesProfit.length][2];
         for (int count = 0; count < categoriesProfit.length; count++) {
             categoriesProfitMatrix[count][0] = categoriesProfit[count][0];
@@ -500,9 +493,9 @@ public class FileHandler {
     }
 
     /**
-     * Calcula o lucro obtido por cada jogo.
+     * Calculates the profit obtained for each game.
      *
-     * @return Matriz com as informações de nome do jogo e lucro correspondente.
+     * @return A matrix with the game name and corresponding profit.
      */
     public static String[][] calculateProfitByGame() {
         String[][] categoriesProfit = extractCSVFileToMatrix(fileCategorias(), true);
@@ -559,10 +552,10 @@ public class FileHandler {
 
 
     /**
-     * Busca informações de um cliente a partir de seu id.
+     * Searches for a client's information based on their id.
      *
-     * @param clientId id do cliente a ser pesquisado
-     * @return Array de String com as informações do cliente, ou array vazio se cliente nao encontrado.
+     * @param clientId The id of the client to be searched.
+     * @return An array of Strings with the client's information, or an empty array if the client is not found.
      */
     public static String[] findClient(String clientId) {
         String[] line;
@@ -589,12 +582,12 @@ public class FileHandler {
     }
 
     /**
-     * Encontra o maior valor de uma coluna do ficheiro.
+     * Finds the highest value in a column of the file.
      *
-     * @param file         ficheiro a ser analisado.
-     * @param ignoreHeader boolean que determina se a primeira linha do ficheiro deve ser ignorada.
-     * @param column       coluna a ter o maior valor buscado.
-     * @return String represnetando o maior valor encontrado na coluna.
+     * @param file         The file to be analyzed.
+     * @param ignoreHeader Boolean determining whether the first line of the file should be ignored.
+     * @param column       The column to search for the highest value.
+     * @return String representing the highest value found in the column.
      */
     public static String findBiggestValue(File file, boolean ignoreHeader, int column) {
         double biggestValue = 0;

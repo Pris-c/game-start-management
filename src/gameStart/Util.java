@@ -5,11 +5,12 @@ import java.util.Scanner;
 
 public class Util {
 
+
     /**
-     * Recebe um array de Strings e imprime cada elemento em uma linha.
-     * As linhas são numeradas e formatadas com um padrão de espaçamento.
+     * Receives an array of Strings and prints each element on a separate line.
+     * The lines are numbered and formatted with a spacing pattern.
      *
-     * @param array Array de Strings a ser impresso.
+     * @param array Array of Strings to be printed.
      */
     public static void printArray(String[] array) {
         for (int i = 0; i < array.length; i++) {
@@ -22,10 +23,10 @@ public class Util {
     }
 
     /**
-     * Recebe uma matriz de Strings e imprime suas informações.
-     * Cada linha é formatadas com um padrão de espaçamento.
+     * Receives a matrix of Strings and prints its information.
+     * Each line is formatted with a spacing pattern.
      *
-     * @param matrix Matriz de Strings a ser impressa.
+     * @param matrix Matrix of Strings to be printed.
      */
     public static void printMatrix(String[][] matrix) {
         int columnLength = 35;
@@ -44,13 +45,13 @@ public class Util {
     }
 
     /**
-     * Lê e valida input do utilizador.
-     * A opção inserida pelo utilizador deve ser do tipo int e estar entre o intervalo de valores definido.
-     * Funciona em loop, que é encerrado quando um valor válido é inserido.
+     * Reads and validates user input.
+     * The option entered by the user must be of type int and within the defined range of values.
+     * It runs in a loop, which is terminated when a valid value is entered.
      *
-     * @param min O valor mínimo do intervalo.
-     * @param max O valor máximo do intervalo.
-     * @return A opção válida inserida pelo utilizador.
+     * @param min The minimum value of the range.
+     * @param max The maximum value of the range.
+     * @return The valid option entered by the user.
      */
     public static int validateOption(int min, int max) {
         Scanner input = new Scanner(System.in);
@@ -81,7 +82,7 @@ public class Util {
     }
 
     /**
-     * Imprime uma série de linhas vazias para simular a limpeza do console.
+     * Prints a series of empty lines to simulate clearing the console.
      */
     public static void cleanScreen() {
         for (int i = 0; i < 50; i++) {
@@ -91,8 +92,7 @@ public class Util {
 
 
     /**
-     * Imprime uma linha de asteriscos para delimitar o inicio e o fim de
-     * uma sessão de output.
+     * Prints a line of asterisks to delimit the beginning and end of an output session.
      */
     public static void openCloseOutput() {
         System.out.println("\n*****************************************************************************************\n");
@@ -100,10 +100,10 @@ public class Util {
 
 
     /**
-     * Recebe um array de Strings contendo informações de um cliente.
-     * Imprime o conteúdo em uma linha, formatada com um padrão de espaçamento.
+     * Receives an array of Strings containing information about a client.
+     * Prints the content in a line, formatted with a spacing pattern.
      *
-     * @param client O array de Strings com as informações do cliente.
+     * @param client The array of Strings with the client's information.
      */
     public static void printClient(String[] client) {
         int columnLength = 35;
@@ -119,7 +119,7 @@ public class Util {
 
 
     /**
-     * Exibe mensagem de Ficheiro não encontrado.
+     * Displays a "File Not Found" message.
      */
     public static void printAdvetisingFileNotFound() {
         openCloseOutput();
@@ -129,7 +129,7 @@ public class Util {
     }
 
     /**
-     * Exibe mensagem de Ficheiro vazio
+     * Displays an "Empty File" message.
      */
     public static void printAdvetisingNoSuchElementException() {
         openCloseOutput();

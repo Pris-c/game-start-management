@@ -10,11 +10,11 @@ import static gameStart.Util.validateOption;
 public class Menu {
 
     /**
-     * Inicia a aplicação com a exibição do menu principal.
-     * Recebe input do utilizador e direciona para o menu escolhido:
-     * 1 - para menu do cliente,
-     * 2 - para menu do administrador.
-     * Funciona com um loop, que é encerrado quando o utilizador informa o valor "0".
+     * Starts the application by displaying the main menu.
+     * Receives user input and directs to the chosen menu:
+     * 1 - for the client menu,
+     * 2 - for the admin menu.
+     * It runs in a loop, which is terminated when the user enters the value "0".
      */
     public static void startApp() {
         int option;
@@ -48,9 +48,9 @@ public class Menu {
 
 
     /**
-     * Exibe o menu com as opções disponíveis para o utilizador do tipo Cliente.
-     * Direciona o utilizador para a função que atende à opção escolhida.
-     * Funciona com um loop, que é encerrado quando o utilizador informa o valor "0".
+     * Displays the menu with options available for the Client user.
+     * Directs the user to the function that serves the chosen option.
+     * It runs in a loop, which is terminated when the user enters the value "0".
      */
     public static void clientMenu() {
         int option;
@@ -101,9 +101,9 @@ public class Menu {
     }
 
     /**
-     * Exibe o menu com as opções disponíveis para o utilizador do tipo Administrador.
-     * Direciona o utilizador para a função que atende à opção escolhida.
-     * Funciona com um loop, que é encerrado quando o utilizador informa o valor "0".
+     * Displays the menu with options available for the Administrator user.
+     * Directs the user to the function that serves the chosen option.
+     * It runs in a loop, which is terminated when the user enters the value "0".
      */
     public static void adminMenu() {
         int option;

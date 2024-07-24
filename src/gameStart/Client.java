@@ -10,10 +10,10 @@ import static gameStart.Util.*;
 public class Client {
 
     /**
-     * Permite a simulação do registro de um novo cliente
-     * Lê nome, telefonde para contacto e endereço de e-mail,
-     * em seguida exibe na tela a mensagem de registro bem sucedido,
-     * juntatamente com os dados inseridos pelo utilizador.
+     * Allows the simulation of registering a new client.
+     * Reads the name, contact phone number, and email address,
+     * then displays a successful registration message
+     * along with the data entered by the user.
      */
     public static void register() {
         Scanner input = new Scanner(System.in);
@@ -35,8 +35,8 @@ public class Client {
 
 
     /**
-     * Simula a busca de vagas de estacionamento disponíveis
-     * por meio da impressão dos numeros triangulares e multiplos de cinco entre 0 e 121.
+     * Simulates the search for available parking spots
+     * by printing triangular numbers and multiples of five between 0 and 121.
      */
     public static void findParking() {
         openCloseOutput();
@@ -51,7 +51,7 @@ public class Client {
     }
 
     /**
-     * Exibe no console o conteúdo do ficheio de vendas.
+     * Displays the content of the sales file on the console.
      */
     public static void printGamesCatalog() {
         openCloseOutput();
@@ -60,10 +60,11 @@ public class Client {
         openCloseOutput();
     }
 
+
     /**
-     * Exibe no console um dos gráficos ASCII disponíveis,
-     * de acordo com a escolha do utilizador.
-     * A função trabalha em loop, até o utilizador informar o valor "0".
+     * Displays one of the available ASCII art graphics on the console,
+     * according to the user's choice.
+     * The function operates in a loop until the user enters the value "0".
      */
     public static void printGraph() {
         int option;
@@ -111,9 +112,9 @@ public class Client {
 
 
     /**
-     * Permite que o utilizador escolha uma editora,
-     * pequisa e imprime os jogos desta editora, oganizados por categoria.
-     * A função fica em loop, até o utilizador informar o valor "0".
+     * Allows the user to choose a publisher,
+     * searches for and prints the games from that publisher, organized by category.
+     * The function operates in a loop until the user enters the value "0".
      */
     public static void printGamesByPublisher() {
         boolean finish = false;
@@ -132,9 +133,9 @@ public class Client {
     }
 
     /**
-     * Permite que o utilizador escolha uma categoria,
-     * pequisa e imprime os jogos desta categoria, oganizados por editora.
-     * A função fica em loop, até o utilizador informar o valor "0".
+     * Allows the user to choose a category,
+     * searches for and prints the games from that category, organized by publisher.
+     * The function operates in a loop until the user enters the value "0".
      */
     public static void printGamesByCategory() {
         boolean finish = false;
@@ -153,7 +154,7 @@ public class Client {
     }
 
     /**
-     * Exibe o ultimo jogo a aparecer no ficheiro de vendas pela primeira vez.,
+     * Displays the latest game to appear in the sales file for the first time.
      */
     public static void printNewestGame() {
         cleanScreen();
@@ -166,10 +167,10 @@ public class Client {
 
 
     /**
-     * Verifica se um determinado número é triângular.
+     * Checks if a given number is a triangular number.
      *
-     * @param num o numero a ser verificado
-     * @return true, se o numero for triangular, false, se o numero nao for triangular
+     * @param num the number to be checked
+     * @return true if the number is triangular, false if the number is not triangular
      */
     public static boolean triangularNumber(int num) {
         int i = 1;

@@ -9,10 +9,10 @@ import static gameStart.Util.*;
 public class Admin {
 
     /**
-     * Lê nome de usuario e senha e valida as informações.
-     * Exibe mensagem de erro se a checagem do login for false.
+     * Reads the username and password and validates the information.
+     * Displays an error message if the login check is false.
      *
-     * @return true, se bem sucedido, e false, se a combinação de credenciais for inválida.
+     * @return true if successful, and false if the credential combination is invalid.
      */
     public static boolean login() {
 
@@ -35,8 +35,8 @@ public class Admin {
     }
 
     /**
-     * Permite que o usuario escolha um dos ficheiros disponíveis para se exibido na tela.
-     * Funciona em loop, até que o utilizador informe o valor "0".
+     * Allows the user to choose one of the available files to be displayed on the screen.
+     * Operates in a loop until the user enters the value "0".
      */
     public static void consultFile() {
         int option;
@@ -69,7 +69,7 @@ public class Admin {
     }
 
     /**
-     * Imprime o número e valor total de vendas efetuadas, de acordo com o ficheiro de vendas.
+     * Prints the number and total value of sales made according to the sales file.
      */
     public static void consultSalesTotal() {
         openCloseOutput();
@@ -80,7 +80,7 @@ public class Admin {
     }
 
     /**
-     * Exibe o valor do lucro tatal.
+     * Displays the total profit value.
      */
     public static void consultTotalProfit() {
         openCloseOutput();
@@ -90,8 +90,8 @@ public class Admin {
     }
 
     /**
-     * Lê o id de um cliente e exibe suas informações, se encontrado.
-     * Se não houver cliente com o id informado, exibe mensagem de aviso.
+     * Reads a client's ID and displays their information if found.
+     * If no client with the given ID is found, displays a warning message.
      */
     public static void consultClient() {
         Scanner input = new Scanner(System.in);
@@ -115,8 +115,8 @@ public class Admin {
     }
 
     /**
-     * Exibe as informações referente ao jogo mais caro do arquivo de vendas:
-     * Valor e nome dos jogos, e lista de clientes que o compraram.
+     * Displays information about the most expensive game in the sales file:
+     * The value and names of the games, and a list of clients who bought it.
      */
     public static void showMostExpensiveGame() {
         int valueColumn = 5;
@@ -169,7 +169,7 @@ public class Admin {
 
 
     /**
-     * Exibe as informações dos clientes que mais gastaram.
+     * Displays information about the top-spending clients.
      */
     public static void printBestClients() {
         String[] bestClients = findBestsClients();
@@ -190,7 +190,7 @@ public class Admin {
 
 
     /**
-     * Exibe a categoria que mais gerou lucro e o valor do lucro gerado.
+     * Displays the category that generated the most profit and the profit value.
      */
     public static void findBestCategory() {
         String[][] profitByCategory = calculateProfitByCategory();
@@ -204,7 +204,7 @@ public class Admin {
     }
 
     /**
-     * Lê o nome de um jogo e exibe os clientes que já o compraram.
+     * Reads the name of a game and displays the clients who purchased it.
      */
     public static void detailGameSale() {
         int gameColumn = 4;
@@ -252,7 +252,7 @@ public class Admin {
     }
 
     /**
-     * Exibe os 5 jogos que mais deram lucro e o respectivo valor do lucro
+     * Displays the top 5 most profitable games and their respective profit values.
      */
     public static void printTop5Games() {
         openCloseOutput();
@@ -278,7 +278,7 @@ public class Admin {
     }
 
     /**
-     * Exibe os 5 jogos que menos deram lucro e o respectivo valor do lucro.
+     * Displays the 5 games that generated the least profit and the respective profit value.
      */
     public static void printBottom5Games() {
         openCloseOutput();

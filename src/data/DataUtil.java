@@ -6,11 +6,11 @@ import static gameStart.Util.*;
 public class DataUtil {
 
     /**
-     * Copia o conteúdo de uma coluna de uma matriz de Strings para um array de Strings.
+     * Copies the content of a column from a matrix of Strings to an array of Strings.
      *
-     * @param matrix Matriz de Strings a ter coluna extraída.
-     * @param column Índice da coluna a ser copiada para o array.
-     * @return Um array de Strings com os elementos da coluna especificada.
+     * @param matrix Matrix of Strings to extract the column from.
+     * @param column Index of the column to be copied to the array.
+     * @return An array of Strings with the elements from the specified column.
      */
     public static String[] extractColumnToArray(String[][] matrix, int column) {
         String[] columnArray = new String[matrix.length];
@@ -22,13 +22,13 @@ public class DataUtil {
     }
 
     /**
-     * Verifica se um array de Strings contém o elemento especificado
-     * , considerando da posição 0 até a posição especificada.
+     * Checks if an array of Strings contains the specified element
+     * from position 0 up to the specified position.
      *
-     * @param array Array de Strings a ser verificado.
-     * @param text  Conteúdo a ser procurado no array.
-     * @param size  Tamanho preenchido do array, a ser considerado na busca.
-     * @return true se o conteúdo existir no array, false se o conteúdo não existir no array.
+     * @param array Array of Strings to be checked.
+     * @param text  Content to be searched in the array.
+     * @param size  Size of the array to be considered in the search.
+     * @return true if the content exists in the array, false if the content does not exist in the array.
      */
     public static boolean arrayContains(String[] array, String text, int size) {
         for (int i = 0; i < size; i++) {
@@ -40,10 +40,10 @@ public class DataUtil {
     }
 
     /**
-     * Recebe um array de Strings e remove elementos duplicados.
+     * Receives an array of Strings and removes duplicate elements.
      *
-     * @param rawArray Array a ter duplicações eliminadas.
-     * @return Um novo array de elementos únicos.
+     * @param rawArray Array from which duplicates should be removed.
+     * @return A new array with unique elements.
      */
     public static String[] arrayToSet(String[] rawArray) {
         String[] set;
@@ -69,23 +69,23 @@ public class DataUtil {
     }
 
     /**
-     * Recebe uma matriz de Strings e extrai a coluna especificada para
-     * um array de elementos únicos.
+     * Receives a matrix of Strings and extracts the specified column into
+     * an array of unique elements.
      *
-     * @param matrix Matriz de Strings eu deve ter a coluna extraída.
-     *               column Índice da coluna a ser extraída.
-     * @return Um array de elementos únicos.
+     * @param matrix Matrix of Strings from which the column should be extracted.
+     *               column Index of the column to be extracted.
+     * @return An array of unique elements.
      */
     public static String[] matrixColumnToSet(String[][] matrix, int column) {
         return arrayToSet(extractColumnToArray(matrix, column));
     }
 
     /**
-     * Recebe um array de Strings e remove os espaços inutilizados.
+     * Receives an array of Strings and removes unused spaces.
      *
-     * @param array    Array original com espaços inutilizados.
-     * @param realSize O tamanho real do array, até onde há informação útil.
-     * @return Um array redimensionado com o tamanho exato dos dados que contém.
+     * @param array    Original array with unused spaces.
+     * @param realSize The actual size of the array, up to where there is useful information.
+     * @return A resized array with the exact size of the data it contains.
      */
     public static String[] cleanEmptyArrayPlaces(String[] array, int realSize) {
         String[] newArray = new String[realSize];
@@ -96,11 +96,11 @@ public class DataUtil {
     }
 
     /**
-     * Recebe uma matiz de Strings e remove as linhas inutilizadas.
+     * Receives a matrix of Strings and removes unused rows.
      *
-     * @param matrix    Matriz original com linhas vazias.
-     * @param realLines O tamanho real da matriz, até onde há informação útil.
-     * @return Uma matriz redimensionada com o tamanho exato dos dados que contém.
+     * @param matrix    Original matrix with empty rows.
+     * @param realLines The actual size of the matrix, up to where there is useful information.
+     * @return A resized matrix with the exact size of the data it contains.
      */
     public static String[][] cleanEmptyMatrixLines(String[][] matrix, int realLines) {
         String[][] newMatrix = new String[realLines][matrix[0].length];
@@ -112,33 +112,28 @@ public class DataUtil {
 
 
     /**
-     * Filtra jogos do ficheiro de vendas e os imprime de acordo com as prioridades definidas.
+     * Filters games from the sales file and prints them according to the defined priorities.
      *
-     * @param key             O valor da chave para o primeiro filtro, determina condição para a exibição do jogo.
-     * @param columnKey       Índice da coluna onde a chave primária deve ser buscada.
-     * @param columnSecFilter Índice da coluna secundária, determina a oganização da exibição dos jogos.
+     * @param key             The key value for the primary filter, determines condition for displaying the game.
+     * @param columnKey       Index of the column where the primary key should be searched.
+     * @param columnSecFilter Index of the secondary column, determines the organization of game display.
      */
     public static void printGamesByKey(String key, int columnKey, int columnSecFilter) {
-        // Busca linhas do ficheiro em que a chave corresponda ao valor pesquisado.
         String[][] matrixByKey = filterFileToMatrix(fileVendas(), true, key, columnKey);
 
-        // Se não for encontrada nenhuma correspondência, exibe mensagem de aviso ao utilizados.
         if (matrixByKey.length < 1) {
             cleanScreen();
             openCloseOutput();
             System.out.println("Nenhum jogo encontrado em \"" + key + "\".");
             openCloseOutput();
 
-            // Caso forem encontradas linhas correspondentes à chava, procede à organização e impressão das informações.
         } else {
             cleanScreen();
             System.out.println("\n******************************* Catálogo " + matrixByKey[0][columnKey] + " *******************************\n");
 
 
-            // Identifica os elementos da coluna secundaria para organizar impressão
             String[] setOfSecColumnElements = matrixColumnToSet(matrixByKey, columnSecFilter);
 
-            // Para cada elemento distinto da coluna secundária, imprime os jogos correspondentes sem repetição
             for (int i = 0; i < setOfSecColumnElements.length; i++) {
                 System.out.println(setOfSecColumnElements[i]);
                 String[] gamesByCategorySet = filterGames(matrixByKey, setOfSecColumnElements[i], columnSecFilter);
@@ -150,9 +145,9 @@ public class DataUtil {
     }
 
     /**
-     * Filtra e imprime jogos do ficheiro de vendas comprados por um determinado cliente.
+     * Filters and prints games from the sales file purchased by a specific client.
      *
-     * @param cliendId O id do cliente de interesse.
+     * @param cliendId The id of the client of interest.
      */
     public static void printGamesByClient(String cliendId) {
         int clientIdColumn = 1;
@@ -171,23 +166,19 @@ public class DataUtil {
     }
 
     /**
-     * Calcula o valor total gasto por cada cliente.
+     * Calculates the total amount spent by each client.
      *
-     * @return Matriz contendo ids dos clientes e valores totais gastos por cada um.
+     * @return Matrix containing client ids and total amounts spent by each.
      */
     public static String[][] calculateClientsSpent() {
 
-        // Extração do ficheiro de vendas para uma matrix, ignorando o cabeçalho.
         String[][] matrixVendas = extractCSVFileToMatrix(fileVendas(), true);
         int clientIdColumn = 1;
         int valueColumn = 5;
 
-        // Criação de um array de String para guardar os ids dos clientes e de
-        // um array de double para guardar os valores gastos acumulados
         String[] clientArray = new String[matrixVendas.length];
         double[] spentArray = new double[matrixVendas.length];
 
-        // Inicializa o array de valores gastos
         for (int c = 0; c < clientArray.length; c++) {
             spentArray[c] = 0;
         }
@@ -196,31 +187,24 @@ public class DataUtil {
         String stringValue;
         boolean found;
 
-        // Preenche o array com os dados da primeira linha da matriz
         stringValue = matrixVendas[0][valueColumn];
         spentArray[0] += Double.parseDouble(stringValue);
         clientArray[0] = matrixVendas[0][clientIdColumn];
         int countSpentMatrixLines = 1;
 
-        // Percorre matriz de vendas e extrai o id do cliente e o valor gasto
         for (int i = 1; i < matrixVendas.length; i++) {
             clientId = matrixVendas[i][clientIdColumn];
             stringValue = matrixVendas[i][valueColumn];
             found = false;
 
-            // Percorre o array de ids de clientes e verifica se contém o id do cliente da linha atual
             for (int k = 0; k < countSpentMatrixLines && !found; k++) {
 
-                // se o id for encontrado, acumula o valor da compra no array de gastos
                 if (clientId.equals(clientArray[k])) {
                     spentArray[k] += Double.parseDouble(stringValue);
                     found = true;
                 }
             }
 
-            // Caso o array de ids ainda não tenha o id do cliente da linha atual,
-            // adiciona o id no array de ids, e o valor da compra no array de gastos,
-            // na mesma posição
             if (!found) {
                 clientArray[countSpentMatrixLines] = clientId;
                 spentArray[countSpentMatrixLines] = Double.parseDouble(stringValue);
@@ -228,7 +212,6 @@ public class DataUtil {
             }
         }
 
-        // Transfere as informações do array de ids e do array de gastos para uma matriz de Strings
         String[][] clientSpent = new String[countSpentMatrixLines][2];
         for (int count = 0; count < countSpentMatrixLines; count++) {
             clientSpent[count][0] = clientArray[count];
@@ -240,9 +223,9 @@ public class DataUtil {
 
 
     /**
-     * Encontra os clientes que mais gastaram.
+     * Finds the clients who spent the most.
      *
-     * @return Array de Strings com os ids dos clientes que gastaram o maior valor.
+     * @return An array of Strings with the IDs of the clients who spent the most amount.
      */
     public static String[] findBestsClients() {
 
@@ -271,13 +254,13 @@ public class DataUtil {
     }
 
     /**
-     * Encontra o maior valor existente na coluna especificada da matriz recebida
-     * Retorna a informação correspondente à coluna determinada, na linha do maior valor.
+     * Finds the highest value in the specified column of the given matrix.
+     * Returns the information from the specified return column in the row with the highest value.
      *
-     * @param matrix       Matriz a ser analisada.
-     * @param column       índex da coluna a ser analizada.
-     * @param returnColumn Índex da coluna a ter o valor retornado
-     * @return Array de Strings com os valores da coluna a ser retornada.
+     * @param matrix       The matrix to be analyzed.
+     * @param column       The index of the column to be analyzed.
+     * @param returnColumn The index of the column to return the value from.
+     * @return An array of Strings with the values from the return column.
      */
     public static String[] findBiggestColumnValue(String[][] matrix, int column, int returnColumn) {
         double biggestValue = 0;
@@ -299,9 +282,9 @@ public class DataUtil {
     }
 
     /**
-     * Encontra os 5 jogos que mais deram lucro.
+     * Finds the top 5 most profitable games.
      *
-     * @return Matrix de Strings com os nomes dos 5 jogos mais lucrativos e seus respetivos lucros.
+     * @return A matrix of Strings with the names of the 5 most profitable games and their respective profits.
      */
     public static String[][] getTop5Games() {
 
@@ -313,7 +296,6 @@ public class DataUtil {
         String[] temp;
         double end;
 
-        // Assegura que o loop não exceda o tamanho do array
         if (profitByGame.length > 5) {
             end = 5;
         } else {
@@ -321,7 +303,6 @@ public class DataUtil {
         }
 
 
-        // Percorre o array 5 vezes, encontrando os maiores valores e transferindo para as primeiras posições do array
         for (int i = 0; i < end; i++) {
             for (int j = i + 1; j < profitByGame.length; j++) {
                 gameI = profitByGame[i];
@@ -336,7 +317,6 @@ public class DataUtil {
             }
         }
 
-        // Cria nova matriz apenas com os 5 jogos mais lucrativos
         String[][] top5Games = new String[5][2];
         for (int i = 0; i < top5Games.length; i++) {
             top5Games[i] = profitByGame[i];
@@ -346,9 +326,9 @@ public class DataUtil {
     }
 
     /**
-     * Encontra os 5 jogos que menos deram lucro.
+     * Finds the 5 least profitable games.
      *
-     * @return Matrix de Strings com os nomes dos 5 jogos menos lucrativos e seus respetivos lucros.
+     * @return A matrix of Strings with the names of the 5 least profitable games and their respective profits.
      */
     public static String[][] getBottom5Games() {
         String[][] profitByGame = calculateProfitByGame();
@@ -359,14 +339,12 @@ public class DataUtil {
         String[] temp;
         double end;
 
-        // Assegura que o loop não exceda o tamanho do array
         if (profitByGame.length > 5) {
             end = 5;
         } else {
             end = profitByGame.length;
         }
 
-        // Percorre o array 5 vezes, encontrando os menores valores e transferindo para as primeiras posições do array
         for (int i = 0; i < end; i++) {
             for (int j = i + 1; j < profitByGame.length; j++) {
                 gameI = profitByGame[i];
@@ -381,7 +359,6 @@ public class DataUtil {
             }
         }
 
-        // Cria nova matriz apenas com os 5 jogos menos lucrativos
         String[][] bottom5Games = new String[5][2];
         for (int i = 0; i < bottom5Games.length; i++) {
             bottom5Games[i] = profitByGame[i];
@@ -392,12 +369,12 @@ public class DataUtil {
 
 
     /**
-     * Filtra os jogos de uma matriz recebida, de acordo com a chave e coluna informadas.
+     * Filters the games from a given matrix according to the specified key and column.
      *
-     * @param matrix Matriz a ser filtrada
-     * @param key    Valor chave a ser pesquisado
-     * @param column Índice da coluna onde a chave deve ser pesquisada
-     * @return Um array de Strings com os nomes dos jogos correspondentes ao filtro, sem repetição.
+     * @param matrix The matrix to be filtered.
+     * @param key    The key value to be searched for.
+     * @param column The index of the column where the key should be searched.
+     * @return An array of Strings with the names of the games matching the filter, without duplicates.
      */
     public static String[] filterGames(String[][] matrix, String key, int column) {
         final int gameColumn = 4;

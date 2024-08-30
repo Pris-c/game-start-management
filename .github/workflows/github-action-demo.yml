@@ -16,4 +16,7 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: cd src 
+      - run: javac Main.java
+      - run: java Main.class
 
